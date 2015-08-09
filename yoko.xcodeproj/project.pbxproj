@@ -24,6 +24,11 @@
 		784D9EEE1B7453B700AD3F4F /* CalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EE31B7453B700AD3F4F /* CalendarLogic.m */; };
 		784D9EEF1B7453B700AD3F4F /* CalendarDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EE51B7453B700AD3F4F /* CalendarDayModel.m */; };
 		784D9EF01B7453B700AD3F4F /* NSDate+WQCalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EE71B7453B700AD3F4F /* NSDate+WQCalendarLogic.m */; };
+		784D9EF61B75EA9700AD3F4F /* CalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EF31B75EA9700AD3F4F /* CalendarCollectionViewCell.m */; };
+		784D9EF71B75EA9700AD3F4F /* CalendarMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EF51B75EA9700AD3F4F /* CalendarMainViewController.m */; };
+		784D9EFC1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EFB1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.m */; };
+		784D9EFF1B765EC900AD3F4F /* CalendarWeekHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EFE1B765EC900AD3F4F /* CalendarWeekHeaderView.m */; };
+		784D9F021B778F2800AD3F4F /* WeekScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9F011B778F2800AD3F4F /* WeekScheduleView.m */; };
 		787111C01B67694F006B245B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 787111BF1B67694F006B245B /* main.m */; };
 		787111C31B67694F006B245B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 787111C21B67694F006B245B /* AppDelegate.m */; };
 		787111C61B67694F006B245B /* yoko.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 787111C41B67694F006B245B /* yoko.xcdatamodeld */; };
@@ -90,6 +95,16 @@
 		784D9EE61B7453B700AD3F4F /* NSDate+WQCalendarLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WQCalendarLogic.h"; sourceTree = "<group>"; };
 		784D9EE71B7453B700AD3F4F /* NSDate+WQCalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WQCalendarLogic.m"; sourceTree = "<group>"; };
 		784D9EE81B7453B700AD3F4F /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		784D9EF21B75EA9700AD3F4F /* CalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarCollectionViewCell.h; sourceTree = "<group>"; };
+		784D9EF31B75EA9700AD3F4F /* CalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarCollectionViewCell.m; sourceTree = "<group>"; };
+		784D9EF41B75EA9700AD3F4F /* CalendarMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarMainViewController.h; sourceTree = "<group>"; };
+		784D9EF51B75EA9700AD3F4F /* CalendarMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMainViewController.m; sourceTree = "<group>"; };
+		784D9EFA1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarWeekCollectionViewLayout.h; sourceTree = "<group>"; };
+		784D9EFB1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarWeekCollectionViewLayout.m; sourceTree = "<group>"; };
+		784D9EFD1B765EC900AD3F4F /* CalendarWeekHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarWeekHeaderView.h; sourceTree = "<group>"; };
+		784D9EFE1B765EC900AD3F4F /* CalendarWeekHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarWeekHeaderView.m; sourceTree = "<group>"; };
+		784D9F001B778F2800AD3F4F /* WeekScheduleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekScheduleView.h; sourceTree = "<group>"; };
+		784D9F011B778F2800AD3F4F /* WeekScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekScheduleView.m; sourceTree = "<group>"; };
 		787111BA1B67694F006B245B /* yoko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yoko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		787111BE1B67694F006B245B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		787111BF1B67694F006B245B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -201,23 +216,49 @@
 		784D9EC01B73832D00AD3F4F /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				784D9EF91B75EAB600AD3F4F /* Month */,
+				784D9EF81B75EAA500AD3F4F /* Week */,
 				784D9EDA1B7453B700AD3F4F /* CalendarViewController.h */,
 				784D9EDB1B7453B700AD3F4F /* CalendarViewController.m */,
+				784D9EE01B7453B700AD3F4F /* CalendarDayCell.h */,
+				784D9EE11B7453B700AD3F4F /* CalendarDayCell.m */,
+				784D9EE41B7453B700AD3F4F /* CalendarDayModel.h */,
+				784D9EE51B7453B700AD3F4F /* CalendarDayModel.m */,
+				784D9EE81B7453B700AD3F4F /* Color.h */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		784D9EF81B75EAA500AD3F4F /* Week */ = {
+			isa = PBXGroup;
+			children = (
+				784D9EF21B75EA9700AD3F4F /* CalendarCollectionViewCell.h */,
+				784D9EF31B75EA9700AD3F4F /* CalendarCollectionViewCell.m */,
+				784D9EF41B75EA9700AD3F4F /* CalendarMainViewController.h */,
+				784D9EF51B75EA9700AD3F4F /* CalendarMainViewController.m */,
+				784D9EFA1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.h */,
+				784D9EFB1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.m */,
+				784D9EFD1B765EC900AD3F4F /* CalendarWeekHeaderView.h */,
+				784D9EFE1B765EC900AD3F4F /* CalendarWeekHeaderView.m */,
+				784D9F001B778F2800AD3F4F /* WeekScheduleView.h */,
+				784D9F011B778F2800AD3F4F /* WeekScheduleView.m */,
+			);
+			name = Week;
+			sourceTree = "<group>";
+		};
+		784D9EF91B75EAB600AD3F4F /* Month */ = {
+			isa = PBXGroup;
+			children = (
 				784D9EDC1B7453B700AD3F4F /* CalendarMonthCollectionViewLayout.h */,
 				784D9EDD1B7453B700AD3F4F /* CalendarMonthCollectionViewLayout.m */,
 				784D9EDE1B7453B700AD3F4F /* CalendarMonthHeaderView.h */,
 				784D9EDF1B7453B700AD3F4F /* CalendarMonthHeaderView.m */,
-				784D9EE01B7453B700AD3F4F /* CalendarDayCell.h */,
-				784D9EE11B7453B700AD3F4F /* CalendarDayCell.m */,
 				784D9EE21B7453B700AD3F4F /* CalendarLogic.h */,
 				784D9EE31B7453B700AD3F4F /* CalendarLogic.m */,
-				784D9EE41B7453B700AD3F4F /* CalendarDayModel.h */,
-				784D9EE51B7453B700AD3F4F /* CalendarDayModel.m */,
 				784D9EE61B7453B700AD3F4F /* NSDate+WQCalendarLogic.h */,
 				784D9EE71B7453B700AD3F4F /* NSDate+WQCalendarLogic.m */,
-				784D9EE81B7453B700AD3F4F /* Color.h */,
 			);
-			name = Calendar;
+			name = Month;
 			sourceTree = "<group>";
 		};
 		787111B11B67694F006B245B = {
@@ -400,6 +441,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				784D9EF61B75EA9700AD3F4F /* CalendarCollectionViewCell.m in Sources */,
+				784D9F021B778F2800AD3F4F /* WeekScheduleView.m in Sources */,
 				78BC778D1B6A42FA00CBBE3A /* EnterPasswordViewController.m in Sources */,
 				784D9E9D1B70863800AD3F4F /* LoginInViewController.m in Sources */,
 				78BC77761B69F19C00CBBE3A /* FriendDetailViewController.m in Sources */,
@@ -413,17 +456,20 @@
 				784D9EEE1B7453B700AD3F4F /* CalendarLogic.m in Sources */,
 				784D9EEA1B7453B700AD3F4F /* CalendarViewController.m in Sources */,
 				78BC77791B69FF2100CBBE3A /* RootFriendDetailViewController.m in Sources */,
+				784D9EFF1B765EC900AD3F4F /* CalendarWeekHeaderView.m in Sources */,
 				784D9EEB1B7453B700AD3F4F /* CalendarMonthCollectionViewLayout.m in Sources */,
 				787111C61B67694F006B245B /* yoko.xcdatamodeld in Sources */,
 				784D9E931B6E570100AD3F4F /* NewTagViewController.m in Sources */,
 				784D9E901B6E46C500AD3F4F /* NewFriendViewController.m in Sources */,
 				784D9EEC1B7453B700AD3F4F /* CalendarMonthHeaderView.m in Sources */,
 				787111C31B67694F006B245B /* AppDelegate.m in Sources */,
+				784D9EFC1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.m in Sources */,
 				787111C91B67694F006B245B /* ViewController.m in Sources */,
 				784D9EEF1B7453B700AD3F4F /* CalendarDayModel.m in Sources */,
 				787111E81B677079006B245B /* FriendView.m in Sources */,
 				784D9EED1B7453B700AD3F4F /* CalendarDayCell.m in Sources */,
 				787111C01B67694F006B245B /* main.m in Sources */,
+				784D9EF71B75EA9700AD3F4F /* CalendarMainViewController.m in Sources */,
 				784D9EF01B7453B700AD3F4F /* NSDate+WQCalendarLogic.m in Sources */,
 				78BC777C1B6A2FC300CBBE3A /* SignUpViewController.m in Sources */,
 				78BC77901B6A509900CBBE3A /* SetTagViewController.m in Sources */,

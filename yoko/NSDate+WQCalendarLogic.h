@@ -28,9 +28,9 @@
 
 - (NSDate *)dayInTheFollowingMonth;
 
-- (NSDate *)dayInTheFollowingMonth:(int)month;//获取当前日期之后的几个月
+- (NSDate *)dayInTheFollowingMonth:(NSInteger)month;//获取当前日期之后的几个月
 
-- (NSDate *)dayInTheFollowingDay:(int)day;//获取当前日期之后的几个天
+- (NSDate *)dayInTheFollowingDay:(NSInteger)day;//获取当前日期之后的几个天
 
 - (NSDateComponents *)YMDComponents;
 
@@ -38,15 +38,18 @@
 
 - (NSString *)stringFromDate:(NSDate *)date;//NSDate转NSString
 
-+ (NSInteger)getDayNumbertoDay:(NSDate *)today beforDay:(NSDate *)beforday;
++ (NSInteger)getDayNumbertoDay:(NSDate *)today beforDay:(NSDate *)beforday; //计算日期间隔
 
--(int)getWeekIntValueWithDate;
+-(NSInteger)getWeekIntValueWithDate;
 
 
 
 //判断日期是今天,明天,后天,周几
 -(NSString *)compareIfTodayWithDate;
 //通过数字返回星期几
-+(NSString *)getWeekStringFromInteger:(int)week;
++(NSString *)getWeekStringFromInteger:(NSInteger)week;
++(NSInteger)getIntervalDaysFromFirstDate:(NSDate *)firstDate andSecondDate:(NSDate *)secondDate;
++ (NSDate *)dateFromYear:(NSInteger)year andMonth:(NSInteger)month andDay:(NSInteger)day;
++ (NSString*)getChineseDayWithDate:(NSDate *)date;
 
 @end

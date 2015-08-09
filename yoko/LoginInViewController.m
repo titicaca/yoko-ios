@@ -60,9 +60,16 @@
     
     if(statusCode / 100 !=2){
         NSLog(@"%ld",statusCode);
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"登陆失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *alert;
+        if(statusCode == 400){
+            alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"用户名或密码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    }
+        else{
+            alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"登陆失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        }
         [alert show];
         return;
+
     }
     
     NSMutableDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];

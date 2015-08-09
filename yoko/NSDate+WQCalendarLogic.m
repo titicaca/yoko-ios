@@ -45,7 +45,7 @@
 /*计算这个月的第一天是礼拜几*/
 - (NSUInteger)weeklyOrdinality
 {
-    return [[NSCalendar currentCalendar] ordinalityOfUnit:NSDayCalendarUnit inUnit:NSWeekCalendarUnit forDate:self];
+    return [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitWeekOfMonth forDate:self];
 }
 
 
@@ -54,7 +54,7 @@
 - (NSDate *)firstDayOfCurrentMonth
 {
     NSDate *startDate = nil;
-    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:NSMonthCalendarUnit startDate:&startDate interval:NULL forDate:self];
+    BOOL ok = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitMonth startDate:&startDate interval:NULL forDate:self];
     NSAssert1(ok, @"Failed to calculate the first day of the month based on %@", self);
     return startDate;
 }
@@ -62,7 +62,7 @@
 
 - (NSDate *)lastDayOfCurrentMonth
 {
-    NSCalendarUnit calendarUnit = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSCalendarUnit calendarUnit = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:calendarUnit fromDate:self];
     dateComponents.day = [self numberOfDaysInCurrentMonth];
     return [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
@@ -86,7 +86,7 @@
 
 
 //获取当前日期之后的几个月
-- (NSDate *)dayInTheFollowingMonth:(int)month
+- (NSDate *)dayInTheFollowingMonth:(NSInteger)month
 {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.month = month;
@@ -94,7 +94,7 @@
 }
 
 //获取当前日期之后的几个天
-- (NSDate *)dayInTheFollowingDay:(int)day
+- (NSDate *)dayInTheFollowingDay:(NSInteger)day
 {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.day = day;
@@ -150,7 +150,7 @@
 + (NSInteger)getDayNumbertoDay:(NSDate *)today beforDay:(NSDate *)beforday
 {
     
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];//日历控件对象
+    NSCalendar *calendar = [NSCalendar currentCalendar];//日历控件对象
     NSDateComponents *components = [calendar components:NSCalendarUnitDay fromDate:today toDate:beforday options:0];
     //    NSDateComponents *components = [calendar components:NSMonthCalendarUnit|NSDayCalendarUnit fromDate:today toDate:beforday options:0];
     NSInteger day = [components day];//两个日历之间相差多少月//    NSInteger days = [components day];//两个之间相差几天
@@ -159,15 +159,15 @@
 
 
 //周日是“1”，周一是“2”...
--(int)getWeekIntValueWithDate
+-(NSInteger)getWeekIntValueWithDate
 {
-    int weekIntValue;
+    NSInteger weekIntValue;
     
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSChineseCalendar];
-    NSDateComponents *comps= [calendar components:(NSYearCalendarUnit |
-                                                   NSMonthCalendarUnit |
-                                                   NSDayCalendarUnit |
-                                                   NSWeekdayCalendarUnit) fromDate:self];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
+    NSDateComponents *comps= [calendar components:(NSCalendarUnitYear |
+                                                   NSCalendarUnitMonth |
+                                                   NSCalendarUnitDay |
+                                                   NSCalendarUnitWeekday) fromDate:self];
     return weekIntValue = [comps weekday];
 }
 
@@ -178,21 +178,21 @@
 -(NSString *)compareIfTodayWithDate
 {
     NSDate *todate = [NSDate date];//今天
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSChineseCalendar];
-    NSDateComponents *comps_today= [calendar components:(NSYearCalendarUnit |
-                                                   NSMonthCalendarUnit |
-                                                   NSDayCalendarUnit |
-                                                   NSWeekdayCalendarUnit) fromDate:todate];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
+    NSDateComponents *comps_today= [calendar components:(NSCalendarUnitYear |
+                                                   NSCalendarUnitMonth |
+                                                   NSCalendarUnitDay |
+                                                   NSCalendarUnitWeekday) fromDate:todate];
     
     
-    NSDateComponents *comps_other= [calendar components:(NSYearCalendarUnit |
-                                                         NSMonthCalendarUnit |
-                                                         NSDayCalendarUnit |
-                                                         NSWeekdayCalendarUnit) fromDate:self];
+    NSDateComponents *comps_other= [calendar components:(NSCalendarUnitYear |
+                                                         NSCalendarUnitMonth |
+                                                         NSCalendarUnitDay |
+                                                         NSCalendarUnitWeekday) fromDate:self];
     
     
     //获取星期对应的数字
-    int weekIntValue = [self getWeekIntValueWithDate];
+    NSInteger weekIntValue = [self getWeekIntValueWithDate];
     
     if (comps_today.year == comps_other.year &&
         comps_today.month == comps_other.month &&
@@ -218,7 +218,7 @@
 
 
 //通过数字返回星期几
-+(NSString *)getWeekStringFromInteger:(int)week
++(NSString *)getWeekStringFromInteger:(NSInteger)week
 {
     NSString *str_week;
     
@@ -248,5 +248,37 @@
     return str_week;
 }
 
++(NSInteger)getIntervalDaysFromFirstDate:(NSDate *)firstDate andSecondDate:(NSDate *)secondDate{
+    NSInteger interval = [secondDate timeIntervalSinceDate:firstDate];
+    if(interval <=0) return 0;
+    else{
+        return interval/86400;
+    }
+}
+
++ (NSDate *)dateFromYear:(NSInteger)year andMonth:(NSInteger)month andDay:(NSInteger)day{
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setYear:year];
+    [comps setMonth:month];
+    [comps setDay:day];
+    NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comps];
+    return date;
+}
+
++ (NSString *)getChineseDayWithDate:(NSDate *)date{
+    NSArray *chineseDays = @[@"*",@"初一", @"初二", @"初三", @"初四", @"初五",
+                             @"初六", @"初七", @"初八", @"初九", @"初十",@"十一", @"十二", @"十三",
+                             @"十四", @"十五", @"十六", @"十七", @"十八", @"十九", @"二十",@"廿一",
+                             @"廿二", @"廿三", @"廿四", @"廿五", @"廿六", @"廿七", @"廿八", @"廿九",
+                             @"三十"];
+     NSArray *chineseMonths =  [NSArray arrayWithObjects:@"*",@"正月",@"二月",@"三月",@"四月",@"五月",@"六月",@"七月",@"八月",@"九月",@"十月",@"十一月",@"腊月",nil];
+    
+    NSDateComponents *comps = [[NSCalendar calendarWithIdentifier:NSCalendarIdentifierChinese] components:NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
+    
+    if(comps.day != 1)
+        return [chineseDays objectAtIndex:comps.day];
+    else
+        return [chineseMonths objectAtIndex:comps.month];
+}
 
 @end

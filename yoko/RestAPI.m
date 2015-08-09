@@ -12,7 +12,7 @@
 @implementation RestAPI
 
 - (void)initWithURI:(NSString *)URI andHTTPMethod:(NSString *)HTTPMethod andDelegate:(id<RestAPIDelegate>)delegate{
-    self.strBaseUrl = @"http://192.168.0.110:8080";
+    self.strBaseUrl = @"http://139.196.16.75:8080";
     self.strBasic=@"YW5kcm9pZC15b2tvOjEyMzQ1Ng==";
     self.app = [ UIApplication sharedApplication ];
     

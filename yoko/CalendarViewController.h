@@ -21,18 +21,20 @@
 //@property(nonatomic ,strong) UICollectionView* collectionView;//网格视图
 
 @property(nonatomic ,strong) NSMutableArray *calendarMonth;//每个月份的中的daymodel容器数组
+@property(nonatomic ,strong) NSMutableArray *calendarWeek;//每个月份的中的daymodel容器数组
 
 @property(nonatomic ,strong) CalendarLogic *Logic;
 
 //@property (nonatomic, copy) CalendarBlock calendarblock;//回调
 
-@property (nonatomic, retain) NSMutableDictionary *mutableDictionary;//回调
+@property (nonatomic, retain) NSMutableDictionary *mutableDictionary;
 
-@property (nonatomic, assign) NSInteger currentInitYear;//回调
-@property (nonatomic, assign) NSInteger currentInitMonth;//回调
+@property (nonatomic, assign) NSInteger currentInitYear;
+@property (nonatomic, assign) NSInteger currentInitMonth;
 
-@property (nonatomic, retain) NSDate* selectedDate;//回调
-
+@property (nonatomic, retain) NSDate* selectedDate;
+@property (nonatomic, retain) NSDate* startDate;
+@property (nonatomic, assign) NSInteger currentType;
 
 
 

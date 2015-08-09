@@ -87,8 +87,7 @@
     
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(tableView == self.TableViewOfFriendFunciton){
         return [self.friendAndTag count];
     }
