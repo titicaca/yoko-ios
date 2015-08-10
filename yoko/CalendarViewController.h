@@ -12,7 +12,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CalendarLogic.h"
-
+#import "WeekScheduleView.h"
 //回掉代码块
 //typedef void (^CalendarBlock)(CalendarDayModel *model);
 
@@ -32,9 +32,13 @@
 @property (nonatomic, assign) NSInteger currentInitYear;
 @property (nonatomic, assign) NSInteger currentInitMonth;
 
-@property (nonatomic, retain) NSDate* selectedDate;
-@property (nonatomic, retain) NSDate* startDate;
+@property (nonatomic, retain) NSDate *selectedDate;
+@property (nonatomic, retain) NSDate *startDate;
 @property (nonatomic, assign) NSInteger currentType;
+
+@property(nonatomic ,strong) WeekScheduleView *testview;
+
+
 
 
 

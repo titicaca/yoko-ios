@@ -18,17 +18,19 @@
 #import "CalendarDayModel.h"
 #import <objc/runtime.h>
 
-#import "WeekScheduleView.h"
+#define Duration 0.2
+
 
 NSInteger secondsPerDay = 86400;
 
 
 
-@interface CalendarViewController ()
-<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface CalendarViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 {
-
-     NSTimer* timer;//定时器
+    BOOL contain;
+    CGPoint startPoint;
+    CGPoint originPoint;
+    UIView *selectView;
 
 }
 
@@ -40,8 +42,10 @@ NSInteger secondsPerDay = 86400;
 @property (weak, nonatomic) IBOutlet UILabel *labelOfWeek;
 @property (weak, nonatomic) IBOutlet UILabel *labelOfMonth;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewOfSchedule;
-@property (weak, nonatomic) IBOutlet UIView *viewOfWeek;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewOfWeek;
+//@property (weak, nonatomic) IBOutlet UIView *viewOfWeek;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *viewOfWeek;
 @end
 
 @implementation CalendarViewController
@@ -151,7 +155,10 @@ static NSString *DayCell = @"CalendarDayCell";
     [self.collectionViewOfMonth addGestureRecognizer:doubleTapRecognizer];
     
     
-
+    UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+    singleTapRecognizer.numberOfTapsRequired = 1;
+    
+    UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchTap:)];
     
     CalendarWeekCollectionViewLayout *weeklayout = [CalendarWeekCollectionViewLayout new];
     [self.collectionViewOfWeek setCollectionViewLayout:weeklayout];
@@ -171,36 +178,150 @@ static NSString *DayCell = @"CalendarDayCell";
     
     
     
-    UITapGestureRecognizer *longTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(longTap:)];
+
     [self.viewOfWeek addGestureRecognizer:doubleTapRecognizer];
+    [self.viewOfWeek addGestureRecognizer:singleTapRecognizer];
+  //  [self.viewOfWeek addGestureRecognizer:pinchGestureRecognizer];
     
     
     [self.view addSubview:self.tableViewOfSchedule];
-    [self.view addSubview:self.viewOfWeek];
+    
+    [self.scrollViewOfWeek setContentSize:CGSizeMake(0, self.viewOfWeek.frame.size.height)];
+    [self.scrollViewOfWeek setMaximumZoomScale:2.0];
+    [self.scrollViewOfWeek setMinimumZoomScale:0.2];
+    [self.view addSubview:self.scrollViewOfWeek];
+    [self.scrollViewOfWeek addSubview:self.viewOfWeek];
     
     self.tableViewOfSchedule.layer.opacity = 1;
     self.viewOfWeek.layer.opacity = 0;
     
 }
 
-- (void)doubleTap:(UITapGestureRecognizer *)tapGestureRecongnizer{
-    if(tapGestureRecongnizer.view == self.collectionViewOfMonth){
+//- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+//    [self.scrollViewOfWeek setContentSize:CGSizeMake(0, self.viewOfWeek.frame.size.height)];
+//    return self.viewOfWeek;
+//}
+
+
+- (void) doHandlePanAction:(UIPanGestureRecognizer *)sender{
+    
+    if(sender.view != selectView) return;
+    CGPoint point = [sender translationInView:self.viewOfWeek];
+    NSLog(@"X:%f;Y:%f",point.x,point.y);
+    
+    sender.view.center = CGPointMake((sender.view.center.x+point.x), sender.view.center.y + point.y);
+    
+//    if(point.x>=45 ){
+//        paramSender.view.center = CGPointMake((int)(paramSender.view.center.x+45)/45*45, paramSender.view.center.y);
+//        [paramSender setTranslation:CGPointMake(0, 0) inView:self.viewOfWeek];
+//
+//    }
+//    else if(point.x<=-45){
+//        paramSender.view.center = CGPointMake((int)(paramSender.view.center.x-45)/45*45, paramSender.view.center.y);
+//        [paramSender setTranslation:CGPointMake(0, 0) inView:self.viewOfWeek];
+//
+//
+//    }
+//    
+//    else
+        [sender setTranslation:CGPointMake(0, 0) inView:self.viewOfWeek];
+    
+    if(sender.state == UIGestureRecognizerStateEnded){
+        [UIView animateWithDuration:Duration animations:^{
+            sender.view.center = CGPointMake(((int)(sender.view.center.x+45/2)/45*45), sender.view.center.y);
+        }];
+    }
+
+    
+}
+
+- (void)doubleTap:(UITapGestureRecognizer *)sender{
+    if(sender.view == self.collectionViewOfMonth){
         NSLog(@"tttt");
     }
-    else if(tapGestureRecongnizer.view == self.viewOfWeek){
+    else if(sender.view == self.viewOfWeek){
         NSLog(@"tttt");
-        WeekScheduleView *view = [[WeekScheduleView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-        view.backgroundColor = [UIColor redColor];
-        [self.viewOfWeek addSubview:view];
+        self.testview = [[WeekScheduleView alloc] initWithFrame:CGRectMake(100, 100, 45, 45)];
+        self.testview.backgroundColor = [UIColor redColor];
+        
+        UILongPressGestureRecognizer *longTapRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTap:)];
+        longTapRecognizer.minimumPressDuration = 0.25f;
+        [self.testview addGestureRecognizer:longTapRecognizer];
+        
+        UIPanGestureRecognizer * panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(doHandlePanAction:)];
+        [self.testview addGestureRecognizer:panGestureRecognizer];
+        
+        [self.viewOfWeek addSubview:self.testview];
     }
     else{
         NSLog(@"tt1");
     }
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"touch");
+- (void)singleTap:(UITapGestureRecognizer *)sender{
+    if(selectView != nil){
+        if(sender.view!= selectView ){
+            [UIView animateWithDuration:Duration animations:^{
+    
+        //        selectView.transform = CGAffineTransformIdentity;
+                selectView.alpha = 1.0;
+                
+                selectView = nil;
+            }];
+
+        }
+    }
+    
 }
+
+- (void)longTap:(UILongPressGestureRecognizer *)sender{
+    NSLog(@"long");
+    if (sender.state == UIGestureRecognizerStateBegan){
+        if(selectView !=nil){
+            [UIView animateWithDuration:Duration animations:^{
+                selectView.transform = CGAffineTransformIdentity;
+                selectView.alpha = 1.0;
+                selectView = nil;
+            }];
+        }
+        startPoint = [sender locationInView:sender.view];
+        originPoint = sender.view.center;
+        [UIView animateWithDuration:Duration animations:^{
+            
+         //   sender.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
+            sender.view.alpha = 0.7;
+        }];
+        
+        selectView = sender.view;
+        
+    }
+    else if (sender.state == UIGestureRecognizerStateChanged){
+        if(sender.view == selectView){
+        
+            CGPoint newPoint = [sender locationInView:sender.view];
+            CGFloat deltaX = newPoint.x-startPoint.x;
+            CGFloat deltaY = newPoint.y-startPoint.y;
+            sender.view.center = CGPointMake(sender.view.center.x+deltaX,sender.view.center.y+deltaY);
+        }
+        //NSLog(@"center = %@",NSStringFromCGPoint(btn.center));
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded){
+        if(selectView == sender.view){
+            [UIView animateWithDuration:Duration animations:^{
+                sender.view.center = CGPointMake(((int)(sender.view.center.x+45/2)/45*45), sender.view.center.y);
+            }];
+        }
+    }
+
+}
+
+- (void)pinchTap:(UIPinchGestureRecognizer *)sender{
+    sender.view.transform = CGAffineTransformScale(sender.view.transform, 1, sender.scale);
+    sender.scale = 1;
+    NSLog(@"%lf %lf",sender.view.frame.size.width,sender.view.frame.size.height);
+    [self.scrollViewOfWeek setContentSize:sender.view.frame.size];
+}
+
 
 
 -(void)initData{
@@ -218,8 +339,7 @@ static NSString *DayCell = @"CalendarDayCell";
 #pragma mark - CollectionView代理方法
 
 //定义展示的Section的个数
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     if(collectionView == self.collectionViewOfMonth){
         return self.calendarMonth.count;
     }
@@ -233,8 +353,7 @@ static NSString *DayCell = @"CalendarDayCell";
 
 
 //定义展示的UICollectionViewCell的个数
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if(collectionView == self.collectionViewOfMonth){
         NSMutableArray *monthArray = [self.calendarMonth objectAtIndex:section];
         return monthArray.count;
@@ -368,8 +487,7 @@ static NSString *DayCell = @"CalendarDayCell";
 }
 
 //返回这个UICollectionView是否可以被选择
--(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     return YES;
 }
 
