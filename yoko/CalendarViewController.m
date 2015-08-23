@@ -46,6 +46,18 @@ NSInteger secondsPerDay = 86400;
 //@property (weak, nonatomic) IBOutlet UIView *viewOfWeek;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *viewOfWeek;
+
+@property (weak, nonatomic) IBOutlet UIView *viewOfGray;
+- (IBAction)actionOfSetFunction:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *buttonOfFunctionView;
+@property (weak, nonatomic) IBOutlet UIView *viewOfFunction;
+@property (weak, nonatomic) IBOutlet UIView *viewOfAddSchedule;
+@property (weak, nonatomic) IBOutlet UITextView *textViewOfEditSchedule;
+- (IBAction)actionOfCloseView:(id)sender;
+
+- (IBAction)actionOfOKView:(id)sender;
+
 @end
 
 @implementation CalendarViewController
@@ -66,16 +78,6 @@ static NSString *DayCell = @"CalendarDayCell";
     NSDate *startDate = [NSDate dateFromYear:2015 andMonth:1 andDay:1];
     
     self.startDate = startDate;
-    
-  //  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    if([userDefaults objectForKey:@"calendar"] == nil){
-//    
-//        self.calendarMonth = [self getMonthArrayOfDayNumber:3650 withDate:date ToDateforString:nil];
-//        [userDefaults setObject:self.calendarMonth forKey:@"calendar"];
-//    }
-//    else{
-//        self.calendarMonth = [userDefaults objectForKey:@"calendar"];
-//    }
     
     self.calendarMonth = [self getMonthArrayOfDayNumber:365*5 withDate:startDate ToDateforString:nil];
     [self transformFromMonthToWeek];
@@ -167,33 +169,43 @@ static NSString *DayCell = @"CalendarDayCell";
     [self.collectionViewOfWeek setPagingEnabled:YES];
     [self.collectionViewOfWeek registerClass:[CalendarDayCell class] forCellWithReuseIdentifier:DayCell];//cell重用设置ID
     [self.collectionViewOfWeek registerClass:[CalendarWeekHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:WeekHeader];
-
-
-    [self.view addSubview:self.collectionViewOfWeek];
-    [self.view addSubview:self.collectionViewOfMonth];
     
     self.labelOfWeek.layer.opacity = 0;
     self.labelOfMonth.layer.opacity = 1;
-    
-    
-    
-    
 
     [self.viewOfWeek addGestureRecognizer:doubleTapRecognizer];
     [self.viewOfWeek addGestureRecognizer:singleTapRecognizer];
-  //  [self.viewOfWeek addGestureRecognizer:pinchGestureRecognizer];
-    
-    
-    [self.view addSubview:self.tableViewOfSchedule];
+    [self.viewOfWeek addGestureRecognizer:pinchGestureRecognizer];
     
     [self.scrollViewOfWeek setContentSize:CGSizeMake(0, self.viewOfWeek.frame.size.height)];
     [self.scrollViewOfWeek setMaximumZoomScale:2.0];
     [self.scrollViewOfWeek setMinimumZoomScale:0.2];
-    [self.view addSubview:self.scrollViewOfWeek];
-    [self.scrollViewOfWeek addSubview:self.viewOfWeek];
     
     self.tableViewOfSchedule.layer.opacity = 1;
+    
+    self.scrollViewOfWeek.layer.opacity = 0;
     self.viewOfWeek.layer.opacity = 0;
+    
+    self.viewOfAddSchedule.layer.opacity = 0;
+    
+    
+    self.viewOfFunction.layer.opacity = 0;
+    
+    self.viewOfGray.hidden = YES;
+    
+    
+    [self.view addSubview:self.collectionViewOfWeek];
+    [self.view addSubview:self.collectionViewOfMonth];
+    
+    [self.view addSubview:self.tableViewOfSchedule];
+    [self.view addSubview:self.scrollViewOfWeek];
+    [self.view addSubview:self.viewOfGray];
+    [self.view addSubview:self.viewOfAddSchedule];
+    
+    [self.scrollViewOfWeek addSubview:self.viewOfWeek];
+    [self.viewOfAddSchedule addSubview:self.viewOfFunction];
+
+    
     
 }
 
@@ -209,8 +221,8 @@ static NSString *DayCell = @"CalendarDayCell";
     CGPoint point = [sender translationInView:self.viewOfWeek];
     NSLog(@"X:%f;Y:%f",point.x,point.y);
     
-    sender.view.center = CGPointMake((sender.view.center.x+point.x), sender.view.center.y + point.y);
-    
+    sender.view.center = CGPointMake(MIN(MAX(sender.view.center.x+point.x,25),300),  MIN(MAX(sender.view.center.y + point.y,25),440));
+    NSLog(@"X:%f;Y:%f",sender.view.center.x+point.x,sender.view.center.y + point.y);
 //    if(point.x>=45 ){
 //        paramSender.view.center = CGPointMake((int)(paramSender.view.center.x+45)/45*45, paramSender.view.center.y);
 //        [paramSender setTranslation:CGPointMake(0, 0) inView:self.viewOfWeek];
@@ -240,8 +252,10 @@ static NSString *DayCell = @"CalendarDayCell";
         NSLog(@"tttt");
     }
     else if(sender.view == self.viewOfWeek){
-        NSLog(@"tttt");
-        self.testview = [[WeekScheduleView alloc] initWithFrame:CGRectMake(100, 100, 45, 45)];
+        CGPoint tapPoint = [sender locationInView:sender.view];
+        NSLog(@"%lf %lf",tapPoint.x,tapPoint.y);
+
+        self.testview = [[WeekScheduleView alloc] initWithFrame:CGRectMake(tapPoint.x-22.5, tapPoint.y-22.5, 45, 45)];
         self.testview.backgroundColor = [UIColor redColor];
         
         UILongPressGestureRecognizer *longTapRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTap:)];
@@ -252,6 +266,18 @@ static NSString *DayCell = @"CalendarDayCell";
         [self.testview addGestureRecognizer:panGestureRecognizer];
         
         [self.viewOfWeek addSubview:self.testview];
+        
+        [UIView animateWithDuration:Duration animations:^{
+            self.viewOfAddSchedule.layer.opacity = 1;
+            self.viewOfGray.hidden = NO;
+        }];
+        selectView = self.testview;
+        [UIView animateWithDuration:Duration animations:^{
+            
+            //   sender.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
+            selectView.alpha = 0.7;
+        }];
+        
     }
     else{
         NSLog(@"tt1");
@@ -275,7 +301,6 @@ static NSString *DayCell = @"CalendarDayCell";
 }
 
 - (void)longTap:(UILongPressGestureRecognizer *)sender{
-    NSLog(@"long");
     if (sender.state == UIGestureRecognizerStateBegan){
         if(selectView !=nil){
             [UIView animateWithDuration:Duration animations:^{
@@ -301,7 +326,7 @@ static NSString *DayCell = @"CalendarDayCell";
             CGPoint newPoint = [sender locationInView:sender.view];
             CGFloat deltaX = newPoint.x-startPoint.x;
             CGFloat deltaY = newPoint.y-startPoint.y;
-            sender.view.center = CGPointMake(sender.view.center.x+deltaX,sender.view.center.y+deltaY);
+            sender.view.center = CGPointMake(MIN(MAX(sender.view.center.x+deltaX,25),300),  MIN(MAX(sender.view.center.y + deltaY,25),440));
         }
         //NSLog(@"center = %@",NSStringFromCGPoint(btn.center));
     }
@@ -534,6 +559,7 @@ static NSString *DayCell = @"CalendarDayCell";
                 self.labelOfMonth.layer.opacity = 1;
                 self.labelOfWeek.layer.opacity = 0;
                 self.tableViewOfSchedule.layer.opacity = 1;
+                self.scrollViewOfWeek.layer.opacity = 0;
                 self.viewOfWeek.layer.opacity = 0;
             }];
            
@@ -546,6 +572,7 @@ static NSString *DayCell = @"CalendarDayCell";
                 self.labelOfMonth.layer.opacity = 0;
                 self.labelOfWeek.layer.opacity = 1;
                 self.tableViewOfSchedule.layer.opacity = 0;
+                self.scrollViewOfWeek.layer.opacity = 1;
                 self.viewOfWeek.layer.opacity = 1;
             }];
        }
@@ -631,4 +658,24 @@ static NSString *DayCell = @"CalendarDayCell";
     }
 }
 
+- (IBAction)actionOfSetFunction:(id)sender {
+    if(self.viewOfFunction.layer.opacity == 1){
+        self.viewOfFunction.layer.opacity = 0;
+    }
+    else{
+        self.viewOfFunction.layer.opacity = 1;
+    }
+}
+- (IBAction)actionOfCloseView:(id)sender {
+    self.viewOfAddSchedule.layer.opacity = 0;
+    self.viewOfGray.hidden = YES;
+    [selectView removeFromSuperview];
+    selectView = nil;
+}
+
+- (IBAction)actionOfOKView:(id)sender {
+    self.viewOfAddSchedule.layer.opacity = 0;
+    self.viewOfGray.hidden = YES;
+
+}
 @end

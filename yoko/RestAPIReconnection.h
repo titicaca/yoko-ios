@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @protocol RestAPIReconnectionDelegate<NSURLConnectionDelegate,NSURLConnectionDataDelegate>
 @required
 - (void) RestAPIRefreshTokenResultWithStatusCode:(NSInteger) statusCode andReceiveData:(NSData *)data andError:(NSError *)error;

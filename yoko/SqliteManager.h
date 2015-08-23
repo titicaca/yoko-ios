@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
 
+
 @interface SqliteManager : NSObject
 {
     sqlite3 *db;
 }
-@property(retain, nonatomic) NSString *filename;
 
 + (SqliteManager *)dbManager;
-- (void)createTable;
-- (void)insertSql:(const char *)sql;
+- (int)insertFriendDataWithFriendId:(int)friend_id andTagId:(int)tag_id andTagname:(char *)tagname;
 @end

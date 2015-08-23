@@ -12,6 +12,9 @@
 #import "NewFriendViewController.h"
 #import "RestAPI.h"
 #import "SqliteManager.h"
+#import "DatabaseCenter.h"
+#import "TableFriendInfo.h"
+#import "FriendInfoRecord.h"
 
 @interface FriendView ()
 @property (weak, nonatomic) IBOutlet UITableView *TableViewOfFriendFunciton;
@@ -27,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.friendAndTag = @[@"新朋友",@"标签"];
-    self.friendList=@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"];
+    self.friendList = [TableFriendInfo getFriendInfoRecords];
     // Do any additional setup after loading the view.
 }
 
@@ -72,8 +75,9 @@
                     initWithStyle:UITableViewCellStyleDefault
                     reuseIdentifier:@"Friend"];
         }
+        FriendInfoRecord *friendInfoRecord = [self.friendList objectAtIndex:indexPath.row];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text=[self.friendList objectAtIndex:indexPath.row];
+        cell.textLabel.text=friendInfoRecord.nickname;
         cell.accessoryType=UITableViewCellAccessoryNone;
         cell.textLabel.backgroundColor = [UIColor clearColor];
         cell.detailTextLabel.backgroundColor = [UIColor clearColor];
@@ -126,18 +130,23 @@
 
 - (IBAction)ButtonOfTest:(id)sender {
     
-    RestAPI *r =[[RestAPI alloc] initNormalRequestWithURI:@"/user" andHTTPMethod:@"GET" andHTTPValues:nil andDelegate:self];
+    RestAPI *r =[[RestAPI alloc] initNormalRequestWithURI:@"/user/userinfo" andHTTPMethod:@"GET" andHTTPValues:nil andDelegate:self andIdentifier:nil];
     
     [r startConnection];
    
 }
 
 - (IBAction)ButtonOfTest2:(id)sender {
+    [TableFriendInfo getFriendInfoRecords];
+//    [TableFriendInfo createTable];
+//    [TableFriendInfo createUniqueIndex];
+//    FriendInfoRecord *f = [[FriendInfoRecord alloc]initWithUid:2l andFuid:5l andEmail:@"f" andLocation:@"f" andMobile:@"f" andNickname:@"f" andPicturelink:@"f" andQq:@"f" andSex:10 andWechat:@"f" andWeibo:@"f" andCollectnumber:1 andEnrollnumber:2 andFriendnumber:3 andLogintime:10l];
+//    [TableFriendInfo insertRecord:f];
     
 
 }
 
-- (void)RestAPIResultWithConnection:(NSURLConnection *)connection andStatusCode:(NSInteger)statusCode andReceiveData:(NSData *)data andError:(NSError *)error{
+- (void)RestAPIResultWithConnection:(NSURLConnection *)connection andStatusCode:(NSInteger)statusCode andReceiveData:(NSData *)data andError:(NSError *)error andIdentifier:(NSString *)identifier{
     NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"%@",connection.currentRequest);
     NSLog(@"%ld",statusCode);

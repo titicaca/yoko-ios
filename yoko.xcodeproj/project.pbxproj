@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78198CC31B830BDF0041BC9D /* FriendInfoRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 78198CC21B830BDF0041BC9D /* FriendInfoRecord.m */; };
+		78198CC61B830D690041BC9D /* TableFriendInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 78198CC51B830D690041BC9D /* TableFriendInfo.m */; };
+		78198CC91B8320570041BC9D /* FriendTagRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 78198CC81B8320570041BC9D /* FriendTagRecord.m */; };
+		78198CE81B85C65B0041BC9D /* DataConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 78198CE71B85C65B0041BC9D /* DataConnection.m */; };
+		78198CEE1B85C8F70041BC9D /* DataStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 78198CED1B85C8F70041BC9D /* DataStatement.m */; };
+		78198CF11B85D0420041BC9D /* DatabaseCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 78198CF01B85D0420041BC9D /* DatabaseCenter.m */; };
+		78198CF51B85DAC20041BC9D /* UserDefaultConstants.c in Sources */ = {isa = PBXBuildFile; fileRef = 78198CF41B85DAC20041BC9D /* UserDefaultConstants.c */; };
+		78198D101B85E49A0041BC9D /* DBConstants.c in Sources */ = {isa = PBXBuildFile; fileRef = 78198D0F1B85E49A0041BC9D /* DBConstants.c */; };
 		784D9E901B6E46C500AD3F4F /* NewFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E8F1B6E46C500AD3F4F /* NewFriendViewController.m */; };
 		784D9E931B6E570100AD3F4F /* NewTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E921B6E570100AD3F4F /* NewTagViewController.m */; };
 		784D9E961B6E5A2900AD3F4F /* NewTagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E951B6E5A2900AD3F4F /* NewTagCollectionViewCell.m */; };
@@ -14,7 +22,6 @@
 		784D9E9D1B70863800AD3F4F /* LoginInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E9C1B70863800AD3F4F /* LoginInViewController.m */; };
 		784D9EA61B71BF8C00AD3F4F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 784D9EA51B71BF8C00AD3F4F /* libsqlite3.dylib */; };
 		784D9EA91B71C80A00AD3F4F /* SqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EA81B71C80A00AD3F4F /* SqliteManager.m */; };
-		784D9EAC1B7201DD00AD3F4F /* LoginInNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EAB1B7201DD00AD3F4F /* LoginInNavigationViewController.m */; };
 		784D9EAF1B7240B400AD3F4F /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EAE1B7240B400AD3F4F /* MainTabViewController.m */; };
 		784D9EB21B7256C300AD3F4F /* RestAPIReconnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EB11B7256C300AD3F4F /* RestAPIReconnection.m */; };
 		784D9EEA1B7453B700AD3F4F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 784D9EDB1B7453B700AD3F4F /* CalendarViewController.m */; };
@@ -36,6 +43,10 @@
 		787111D11B67694F006B245B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 787111CF1B67694F006B245B /* LaunchScreen.xib */; };
 		787111DD1B67694F006B245B /* yokoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 787111DC1B67694F006B245B /* yokoTests.m */; };
 		787111E81B677079006B245B /* FriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 787111E71B677079006B245B /* FriendView.m */; };
+		7874BD9B1B86E99A00DE373A /* NSNull+InternalNullExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BD9A1B86E99A00DE373A /* NSNull+InternalNullExtention.m */; };
+		7874BD9F1B86F38400DE373A /* UserServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BD9E1B86F38400DE373A /* UserServer.m */; };
+		7874BDA41B89A5EB00DE373A /* EnterPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDA11B89A5EB00DE373A /* EnterPasswordViewController.m */; };
+		7874BDA51B89A5EB00DE373A /* LoginInNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDA31B89A5EB00DE373A /* LoginInNavigationViewController.m */; };
 		78BC77731B69F16900CBBE3A /* FriendDetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77721B69F16900CBBE3A /* FriendDetailPageViewController.m */; };
 		78BC77761B69F19C00CBBE3A /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77751B69F19C00CBBE3A /* FriendDetailViewController.m */; };
 		78BC77791B69FF2100CBBE3A /* RootFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77781B69FF2100CBBE3A /* RootFriendDetailViewController.m */; };
@@ -44,7 +55,6 @@
 		78BC77861B6A38B500CBBE3A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BC77851B6A38B400CBBE3A /* libicucore.dylib */; };
 		78BC77881B6A38BE00CBBE3A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BC77871B6A38BE00CBBE3A /* libz.dylib */; };
 		78BC778A1B6A38C700CBBE3A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BC77891B6A38C700CBBE3A /* MessageUI.framework */; };
-		78BC778D1B6A42FA00CBBE3A /* EnterPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC778C1B6A42FA00CBBE3A /* EnterPasswordViewController.m */; };
 		78BC77901B6A509900CBBE3A /* SetTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC778F1B6A509900CBBE3A /* SetTagViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +69,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		78198CC11B830BDF0041BC9D /* FriendInfoRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInfoRecord.h; sourceTree = "<group>"; };
+		78198CC21B830BDF0041BC9D /* FriendInfoRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInfoRecord.m; sourceTree = "<group>"; };
+		78198CC41B830D690041BC9D /* TableFriendInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableFriendInfo.h; sourceTree = "<group>"; };
+		78198CC51B830D690041BC9D /* TableFriendInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableFriendInfo.m; sourceTree = "<group>"; };
+		78198CC71B8320570041BC9D /* FriendTagRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTagRecord.h; sourceTree = "<group>"; };
+		78198CC81B8320570041BC9D /* FriendTagRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTagRecord.m; sourceTree = "<group>"; };
+		78198CE61B85C65B0041BC9D /* DataConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataConnection.h; sourceTree = "<group>"; };
+		78198CE71B85C65B0041BC9D /* DataConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataConnection.m; sourceTree = "<group>"; };
+		78198CEC1B85C8F70041BC9D /* DataStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStatement.h; sourceTree = "<group>"; };
+		78198CED1B85C8F70041BC9D /* DataStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStatement.m; sourceTree = "<group>"; };
+		78198CEF1B85D0420041BC9D /* DatabaseCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseCenter.h; sourceTree = "<group>"; };
+		78198CF01B85D0420041BC9D /* DatabaseCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseCenter.m; sourceTree = "<group>"; };
+		78198CF21B85D7390041BC9D /* DBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBConstants.h; sourceTree = "<group>"; };
+		78198CF31B85D7CE0041BC9D /* UserDefaultConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaultConstants.h; sourceTree = "<group>"; };
+		78198CF41B85DAC20041BC9D /* UserDefaultConstants.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = UserDefaultConstants.c; sourceTree = "<group>"; };
+		78198D0F1B85E49A0041BC9D /* DBConstants.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DBConstants.c; sourceTree = "<group>"; };
 		784D9E8E1B6E46C500AD3F4F /* NewFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFriendViewController.h; sourceTree = "<group>"; };
 		784D9E8F1B6E46C500AD3F4F /* NewFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFriendViewController.m; sourceTree = "<group>"; };
 		784D9E911B6E570100AD3F4F /* NewTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTagViewController.h; sourceTree = "<group>"; };
@@ -72,8 +98,6 @@
 		784D9EA51B71BF8C00AD3F4F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		784D9EA71B71C80A00AD3F4F /* SqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteManager.h; sourceTree = "<group>"; };
 		784D9EA81B71C80A00AD3F4F /* SqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteManager.m; sourceTree = "<group>"; };
-		784D9EAA1B7201DD00AD3F4F /* LoginInNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginInNavigationViewController.h; path = ../LoginInNavigationViewController.h; sourceTree = "<group>"; };
-		784D9EAB1B7201DD00AD3F4F /* LoginInNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginInNavigationViewController.m; path = ../LoginInNavigationViewController.m; sourceTree = "<group>"; };
 		784D9EAD1B7240B400AD3F4F /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		784D9EAE1B7240B400AD3F4F /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
 		784D9EB01B7256C300AD3F4F /* RestAPIReconnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestAPIReconnection.h; sourceTree = "<group>"; };
@@ -115,6 +139,14 @@
 		787111DC1B67694F006B245B /* yokoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yokoTests.m; sourceTree = "<group>"; };
 		787111E61B677079006B245B /* FriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendView.h; sourceTree = "<group>"; };
 		787111E71B677079006B245B /* FriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendView.m; sourceTree = "<group>"; };
+		7874BD991B86E99A00DE373A /* NSNull+InternalNullExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+InternalNullExtention.h"; sourceTree = "<group>"; };
+		7874BD9A1B86E99A00DE373A /* NSNull+InternalNullExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+InternalNullExtention.m"; sourceTree = "<group>"; };
+		7874BD9D1B86F38400DE373A /* UserServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserServer.h; sourceTree = "<group>"; };
+		7874BD9E1B86F38400DE373A /* UserServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserServer.m; sourceTree = "<group>"; };
+		7874BDA01B89A5EB00DE373A /* EnterPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterPasswordViewController.h; sourceTree = "<group>"; };
+		7874BDA11B89A5EB00DE373A /* EnterPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterPasswordViewController.m; sourceTree = "<group>"; };
+		7874BDA21B89A5EB00DE373A /* LoginInNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInNavigationViewController.h; sourceTree = "<group>"; };
+		7874BDA31B89A5EB00DE373A /* LoginInNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInNavigationViewController.m; sourceTree = "<group>"; };
 		78BC77711B69F16900CBBE3A /* FriendDetailPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailPageViewController.h; sourceTree = "<group>"; };
 		78BC77721B69F16900CBBE3A /* FriendDetailPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailPageViewController.m; sourceTree = "<group>"; };
 		78BC77741B69F19C00CBBE3A /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
@@ -127,8 +159,6 @@
 		78BC77851B6A38B400CBBE3A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		78BC77871B6A38BE00CBBE3A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		78BC77891B6A38C700CBBE3A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		78BC778B1B6A42FA00CBBE3A /* EnterPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnterPasswordViewController.h; path = ../EnterPasswordViewController.h; sourceTree = "<group>"; };
-		78BC778C1B6A42FA00CBBE3A /* EnterPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnterPasswordViewController.m; path = ../EnterPasswordViewController.m; sourceTree = "<group>"; };
 		78BC778E1B6A509900CBBE3A /* SetTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTagViewController.h; sourceTree = "<group>"; };
 		78BC778F1B6A509900CBBE3A /* SetTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTagViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,15 +186,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		784D9E9A1B6F5F5300AD3F4F /* API */ = {
+		78198CBF1B830BA00041BC9D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				784D9EA71B71C80A00AD3F4F /* SqliteManager.h */,
+				784D9EA81B71C80A00AD3F4F /* SqliteManager.m */,
+				78198CC11B830BDF0041BC9D /* FriendInfoRecord.h */,
+				78198CC21B830BDF0041BC9D /* FriendInfoRecord.m */,
+				78198CC41B830D690041BC9D /* TableFriendInfo.h */,
+				78198CC51B830D690041BC9D /* TableFriendInfo.m */,
+				78198CC71B8320570041BC9D /* FriendTagRecord.h */,
+				78198CC81B8320570041BC9D /* FriendTagRecord.m */,
+				78198CE61B85C65B0041BC9D /* DataConnection.h */,
+				78198CE71B85C65B0041BC9D /* DataConnection.m */,
+				78198CEC1B85C8F70041BC9D /* DataStatement.h */,
+				78198CED1B85C8F70041BC9D /* DataStatement.m */,
+				78198CEF1B85D0420041BC9D /* DatabaseCenter.h */,
+				78198CF01B85D0420041BC9D /* DatabaseCenter.m */,
+				78198CF21B85D7390041BC9D /* DBConstants.h */,
+				78198D0F1B85E49A0041BC9D /* DBConstants.c */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		78198CC01B830BB30041BC9D /* RestAPI */ = {
 			isa = PBXGroup;
 			children = (
 				784D9E971B6F5F4E00AD3F4F /* RestAPI.h */,
 				784D9E981B6F5F4E00AD3F4F /* RestAPI.m */,
-				784D9EA71B71C80A00AD3F4F /* SqliteManager.h */,
-				784D9EA81B71C80A00AD3F4F /* SqliteManager.m */,
 				784D9EB01B7256C300AD3F4F /* RestAPIReconnection.h */,
 				784D9EB11B7256C300AD3F4F /* RestAPIReconnection.m */,
+				7874BD991B86E99A00DE373A /* NSNull+InternalNullExtention.h */,
+				7874BD9A1B86E99A00DE373A /* NSNull+InternalNullExtention.m */,
+			);
+			name = RestAPI;
+			sourceTree = "<group>";
+		};
+		784D9E9A1B6F5F5300AD3F4F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7874BD9C1B86F32C00DE373A /* UserServer */,
+				78198CC01B830BB30041BC9D /* RestAPI */,
+				78198CBF1B830BA00041BC9D /* Database */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -195,14 +258,14 @@
 		784D9EBF1B7382F900AD3F4F /* User */ = {
 			isa = PBXGroup;
 			children = (
+				7874BDA01B89A5EB00DE373A /* EnterPasswordViewController.h */,
+				7874BDA11B89A5EB00DE373A /* EnterPasswordViewController.m */,
+				7874BDA21B89A5EB00DE373A /* LoginInNavigationViewController.h */,
+				7874BDA31B89A5EB00DE373A /* LoginInNavigationViewController.m */,
 				784D9E9B1B70863800AD3F4F /* LoginInViewController.h */,
 				784D9E9C1B70863800AD3F4F /* LoginInViewController.m */,
-				784D9EAA1B7201DD00AD3F4F /* LoginInNavigationViewController.h */,
-				784D9EAB1B7201DD00AD3F4F /* LoginInNavigationViewController.m */,
 				78BC777A1B6A2FC300CBBE3A /* SignUpViewController.h */,
 				78BC777B1B6A2FC300CBBE3A /* SignUpViewController.m */,
-				78BC778B1B6A42FA00CBBE3A /* EnterPasswordViewController.h */,
-				78BC778C1B6A42FA00CBBE3A /* EnterPasswordViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -316,6 +379,17 @@
 				787111DB1B67694F006B245B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7874BD9C1B86F32C00DE373A /* UserServer */ = {
+			isa = PBXGroup;
+			children = (
+				78198CF31B85D7CE0041BC9D /* UserDefaultConstants.h */,
+				78198CF41B85DAC20041BC9D /* UserDefaultConstants.c */,
+				7874BD9D1B86F38400DE373A /* UserServer.h */,
+				7874BD9E1B86F38400DE373A /* UserServer.m */,
+			);
+			name = UserServer;
 			sourceTree = "<group>";
 		};
 		78BC77841B6A388300CBBE3A /* Framework */ = {
@@ -432,8 +506,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				784D9F021B778F2800AD3F4F /* WeekScheduleView.m in Sources */,
-				78BC778D1B6A42FA00CBBE3A /* EnterPasswordViewController.m in Sources */,
+				7874BDA51B89A5EB00DE373A /* LoginInNavigationViewController.m in Sources */,
+				78198CE81B85C65B0041BC9D /* DataConnection.m in Sources */,
 				784D9E9D1B70863800AD3F4F /* LoginInViewController.m in Sources */,
+				78198CF51B85DAC20041BC9D /* UserDefaultConstants.c in Sources */,
 				78BC77761B69F19C00CBBE3A /* FriendDetailViewController.m in Sources */,
 				784D9EB21B7256C300AD3F4F /* RestAPIReconnection.m in Sources */,
 				784D9E991B6F5F4E00AD3F4F /* RestAPI.m in Sources */,
@@ -441,18 +517,26 @@
 				784D9EA91B71C80A00AD3F4F /* SqliteManager.m in Sources */,
 				784D9E961B6E5A2900AD3F4F /* NewTagCollectionViewCell.m in Sources */,
 				78BC77731B69F16900CBBE3A /* FriendDetailPageViewController.m in Sources */,
-				784D9EAC1B7201DD00AD3F4F /* LoginInNavigationViewController.m in Sources */,
 				784D9EEE1B7453B700AD3F4F /* CalendarLogic.m in Sources */,
 				784D9EEA1B7453B700AD3F4F /* CalendarViewController.m in Sources */,
+				78198D101B85E49A0041BC9D /* DBConstants.c in Sources */,
+				7874BD9F1B86F38400DE373A /* UserServer.m in Sources */,
 				78BC77791B69FF2100CBBE3A /* RootFriendDetailViewController.m in Sources */,
 				784D9EFF1B765EC900AD3F4F /* CalendarWeekHeaderView.m in Sources */,
+				78198CF11B85D0420041BC9D /* DatabaseCenter.m in Sources */,
+				78198CC31B830BDF0041BC9D /* FriendInfoRecord.m in Sources */,
 				784D9EEB1B7453B700AD3F4F /* CalendarMonthCollectionViewLayout.m in Sources */,
 				787111C61B67694F006B245B /* yoko.xcdatamodeld in Sources */,
+				78198CC61B830D690041BC9D /* TableFriendInfo.m in Sources */,
+				7874BDA41B89A5EB00DE373A /* EnterPasswordViewController.m in Sources */,
 				784D9E931B6E570100AD3F4F /* NewTagViewController.m in Sources */,
 				784D9E901B6E46C500AD3F4F /* NewFriendViewController.m in Sources */,
+				78198CEE1B85C8F70041BC9D /* DataStatement.m in Sources */,
 				784D9EEC1B7453B700AD3F4F /* CalendarMonthHeaderView.m in Sources */,
 				787111C31B67694F006B245B /* AppDelegate.m in Sources */,
 				784D9EFC1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.m in Sources */,
+				78198CC91B8320570041BC9D /* FriendTagRecord.m in Sources */,
+				7874BD9B1B86E99A00DE373A /* NSNull+InternalNullExtention.m in Sources */,
 				787111C91B67694F006B245B /* ViewController.m in Sources */,
 				784D9EEF1B7453B700AD3F4F /* CalendarDayModel.m in Sources */,
 				787111E81B677079006B245B /* FriendView.m in Sources */,

@@ -7,8 +7,12 @@
 //
 
 #import "SqliteManager.h"
+#include "DBConstants.h"
 
 @implementation SqliteManager
+{
+    NSString *filename;
+}
 
 +(SqliteManager *) dbManager
 {
@@ -24,25 +28,28 @@
 }
 
 - (id)initWithDatabaseName:(NSString *)databaseName{
-    if([super init]){
+    self = [super init];
+    if(self){
         [self createDatabase:databaseName];
+        [self createTableFriend];
+        [self createTableSchedule];
     }
     return self;
 }
 
 - (void)createDatabase:(NSString *)databaseName{
     NSString *allDatabaseName=[NSString stringWithFormat:@"%@.sqlite",databaseName];
-    self.filename = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]stringByAppendingPathComponent:allDatabaseName];
-    NSLog(@"%@",self.filename);
+    filename = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject]stringByAppendingPathComponent:allDatabaseName];
+    NSLog(@"%@",filename);
 }
 
-- (void)createTable{
+- (void)createTableFriend{
 
-    int result = sqlite3_open(self.filename.UTF8String, &db);
+    int result = sqlite3_open(filename.UTF8String, &db);
     if (result == SQLITE_OK) {
         NSLog(@"成功打开");
         //3.创表
-        const char *sql = "create TABLE if not EXISTS t_friend (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id int8, friend_id int8, tag_id int8, tagname char(30));";
+        const char *sql = "CREATE TABLE IF NOT EXISTS t_friend (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id int8, friend_id int8, tag_id int8, tagname char(30));";
         char *errorMesg = NULL;
         int result = sqlite3_exec(db, sql, NULL,NULL, &errorMesg);
         if (result == SQLITE_OK) {
@@ -50,14 +57,31 @@
         }else{
             NSLog(@"创表失败：%s",errorMesg);
         }
-        
     }else{
         NSLog(@"打开数据库失败");
     }
 }
 
-- (void)insertSql:(const char *)sql{
-  //  const char *sql = "insert into t_student (name, age) values('jack', 20);";
+- (void)createTableSchedule{
+    
+    int result = sqlite3_open(filename.UTF8String, &db);
+    if (result == SQLITE_OK) {
+        NSLog(@"成功打开");
+        //3.创表
+        const char *sql = "CREATE TABLE IF NOT EXISTS t_schedule (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id int8, timebegin datetime, timeend datetime, type int, introduction text, property int, detaillink text);";
+        char *errorMesg = NULL;
+        int result = sqlite3_exec(db, sql, NULL,NULL, &errorMesg);
+        if (result == SQLITE_OK) {
+            NSLog(@"成功创建表XXX");
+        }else{
+            NSLog(@"创表失败：%s",errorMesg);
+        }
+    }else{
+        NSLog(@"打开数据库失败");
+    }
+}
+
+- (int)insertSql:(const char *)sql{
     char *errorMesg = NULL;
     int result = sqlite3_exec(db,sql,NULL, NULL, &errorMesg);
     if (result == SQLITE_OK) {
@@ -65,7 +89,8 @@
     }else {
         NSLog(@"添加数据失败:%s",errorMesg);
     }
-
+    return result;
 }
+
 
 @end

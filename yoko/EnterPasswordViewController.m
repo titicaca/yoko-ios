@@ -61,12 +61,12 @@
     [HTTPValues setObject:[NSString stringWithFormat:@"0_%@",self.mobile] forKey:@"role_mobile"];
     [HTTPValues setObject:self.TextFieldOfPassword.text forKey:@"password"];
     
-    RestAPI *r =[[RestAPI alloc] initSignUpRequestWithURI:@"/signup/user" andHTTPMethod:@"POST" andHTTPValues:HTTPValues andDelegate:self];
+    RestAPI *r =[[RestAPI alloc] initSignUpRequestWithURI:@"/signup/user" andHTTPMethod:@"POST" andHTTPValues:HTTPValues andDelegate:self andIdentifier:nil];
     
     [r startConnection];
 }
 
-- (void)RestAPIResultWithConnection:(NSURLConnection *)connection andStatusCode:(NSInteger)statusCode andReceiveData:(NSData *)data andError:(NSError *)error{
+- (void)RestAPIResultWithConnection:(NSURLConnection *)connection andStatusCode:(NSInteger)statusCode andReceiveData:(NSData *)data andError:(NSError *)error andIdentifier:(NSString *)identifier{
     NSString *str=[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
     NSLog(@"%@",connection.currentRequest);
     NSLog(@"%ld",statusCode);

@@ -7,12 +7,12 @@
 //
 
 #import "RestAPIReconnection.h"
-
+#import "UserServer.h"
 
 @implementation RestAPIReconnection
 
 - (void)initWithDelegate:(id<RestAPIReconnectionDelegate>)delegate{
-    self.strBaseUrl = @"http://192.168.0.110:8080";
+    self.strBaseUrl = @"http://139.196.16.75:8080";
     self.strBasic=@"YW5kcm9pZC15b2tvOjEyMzQ1Ng==";
     self.app = [ UIApplication sharedApplication ];
     NSString *strUrl=[NSString stringWithFormat:@"%@%@",self.strBaseUrl, @"/oauth/token"];
@@ -25,14 +25,13 @@
 }
 
 - (id)initRefreshTokenWithDelegate:(id<RestAPIReconnectionDelegate>)delegate{
-    if([super init]){
-        
+    self = [super init];
+    if(self){
         [self initWithDelegate:delegate];
         NSString *strUrl=[NSString stringWithFormat:@"%@%@",self.strBaseUrl, @"/oauth/token"];
         
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [self.request setValue:[NSString stringWithFormat:@"Basic %@",self.strBasic] forHTTPHeaderField:@"Authorization"];
-        self.request.URL=[NSURL URLWithString:[NSString stringWithFormat:@"%@?refresh_token=%@&grant_type=refresh_token",strUrl,[userDefaults objectForKey:@"refreshToken"]]];
+        self.request.URL=[NSURL URLWithString:[NSString stringWithFormat:@"%@?refresh_token=%@&grant_type=refresh_token",strUrl,[UserServer getRefreshToken]]];
         
         self.mConn =[[NSURLConnection alloc]initWithRequest:self.request delegate:self startImmediately:false];
         self.delegate = delegate;
@@ -42,13 +41,13 @@
 }
 
 - (id)initAutoLoginWithDelegate:(id<RestAPIReconnectionDelegate>)delegate{
-    if([super init]){
+    self = [super init];
+    if(self){
         
         [self initWithDelegate:delegate];
         NSString *strUrl=[NSString stringWithFormat:@"%@%@",self.strBaseUrl, @"/oauth/token"];
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [self.request setValue:[NSString stringWithFormat:@"Basic %@",self.strBasic] forHTTPHeaderField:@"Authorization"];
-        self.request.URL=[NSURL URLWithString:[NSString stringWithFormat:@"%@?password=%@&username=%@&grant_type=password",strUrl,[userDefaults objectForKey:@"password"],[userDefaults objectForKey:@"username"]]];
+        self.request.URL=[NSURL URLWithString:[NSString stringWithFormat:@"%@?password=%@&username=%@&grant_type=password",strUrl,[UserServer getPassword],[UserServer getMobileRole]]];
         
         self.mConn =[[NSURLConnection alloc]initWithRequest:self.request delegate:self startImmediately:false];
 
