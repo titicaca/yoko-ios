@@ -14,7 +14,7 @@
 #import "SqliteManager.h"
 #import "DatabaseCenter.h"
 #import "TableFriendInfo.h"
-#import "FriendInfoRecord.h"
+#import "TableFriendTag.h"
 
 @interface FriendView ()
 @property (weak, nonatomic) IBOutlet UITableView *TableViewOfFriendFunciton;
@@ -137,7 +137,7 @@
 }
 
 - (IBAction)ButtonOfTest2:(id)sender {
-    [TableFriendInfo getFriendInfoRecords];
+    [TableFriendTag getTagArray];
 //    [TableFriendInfo createTable];
 //    [TableFriendInfo createUniqueIndex];
 //    FriendInfoRecord *f = [[FriendInfoRecord alloc]initWithUid:2l andFuid:5l andEmail:@"f" andLocation:@"f" andMobile:@"f" andNickname:@"f" andPicturelink:@"f" andQq:@"f" andSex:10 andWechat:@"f" andWeibo:@"f" andCollectnumber:1 andEnrollnumber:2 andFriendnumber:3 andLogintime:10l];

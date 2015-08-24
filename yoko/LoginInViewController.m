@@ -10,6 +10,7 @@
 #import "MainTabViewController.h"
 #import "TableFriendInfo.h"
 #import "UserServer.h"
+#import "TableFriendTag.h"
 
 @interface LoginInViewController ()
 - (IBAction)ActionOfLoginIn:(id)sender;
@@ -24,11 +25,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if([UserServer getUserID] != 0l){
+        MainTabViewController *mainTabViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabView"];
+        [self presentViewController:mainTabViewController animated:YES completion:^{
+            NSLog(@"ok");}];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    NSLog(@"%@",[UserServer getMobileRole]);
+    if([[[UserServer getMobileRole] substringToIndex:1] isEqualToString:@"0"]){
+        self.TextFieldOfMobile.text = [[UserServer getMobileRole] substringFromIndex:2];
+    }
+
 }
 
 /*
@@ -152,6 +166,8 @@
         
         [TableFriendInfo createTable];
         [TableFriendInfo insertFriendInfoRecords:rcvArray];
+        [TableFriendTag createTable];
+        [TableFriendTag insertFriendTagRecords:rcvArray];
         
         MainTabViewController *mainTabViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabView"];
         [self presentViewController:mainTabViewController animated:YES completion:nil];

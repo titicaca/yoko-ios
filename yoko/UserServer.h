@@ -18,6 +18,11 @@
 + (NSString *)getRefreshToken;
 + (NSString *)getMobileRole;
 + (NSString *)getPassword;
++ (NSString *)getNickname;
++ (NSString *)getLocation;
++ (int)getCollectNumber;
++ (int)getEnrollNumber;
++ (int)getFriendNumber;
 
-
++ (void)logOut;
 @end

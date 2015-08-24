@@ -12,4 +12,7 @@
 
 @property(assign, nonatomic)int deleteFlag;
 
+@property(nonatomic, retain) NSArray *friendList;
+@property(nonatomic, assign) long selectedTagId;
+
 @end

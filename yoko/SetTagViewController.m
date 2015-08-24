@@ -8,6 +8,7 @@
 
 #import "SetTagViewController.h"
 #import "NewTagViewController.h"
+#import "TableFriendTag.h"
 
 @interface SetTagViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *TableViewOfTag;
@@ -19,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tagList = @[@"朋友",@"亲人",@"同学"];
+    self.tagList = [TableFriendTag getTagArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +57,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NewTagViewController *newTagViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NewTagView"];
+    newTagViewController.selectedTagId = (indexPath.row+1);
     [self.navigationController pushViewController:newTagViewController animated:YES];
 
     

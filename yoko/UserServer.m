@@ -13,9 +13,15 @@
 
 + (void)saveUserInfo:(NSDictionary *)userInfo{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
     [userDefaults setObject:[userInfo objectForKey:@"id"] forKey:[NSString stringWithUTF8String:USER_ID]];
-    [userDefaults setObject:[userInfo objectForKey:@"mobile"] forKey:[NSString stringWithUTF8String:USER_MOBILE]];
-    [userDefaults setObject:[userInfo objectForKey:@"nickname"] forKey:[NSString stringWithUTF8String:USER_NICKNAME]];
+    
+    if([userInfo objectForKey:@"mobile"] != [NSNull null])
+        [userDefaults setObject:[userInfo objectForKey:@"mobile"] forKey:[NSString stringWithUTF8String:USER_MOBILE]];
+    
+    if([userInfo objectForKey:@"nickname"] != [NSNull null])
+        [userDefaults setObject:[userInfo objectForKey:@"nickname"] forKey:[NSString stringWithUTF8String:USER_NICKNAME]];
+    
     [userDefaults setObject:[userInfo objectForKey:@"sex"] forKey:[NSString stringWithUTF8String:USER_SEX]];
     
     if([userInfo objectForKey:@"location"] != [NSNull null])
@@ -59,6 +65,11 @@
 
 }
 
++ (void)setUserID:(long)userId{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:[NSNumber numberWithLong:userId] forKey:[NSString stringWithUTF8String:USER_ID]];
+}
+
 + (long)getUserID{
     return [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_ID]] longValue];
 }
@@ -77,6 +88,30 @@
 
 + (NSString *)getMobileRole{
     return [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_MOBILE_ROLE]];
+}
+
++ (NSString *)getNickname{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_NICKNAME]];
+}
+
++ (NSString *)getLocation{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_LOCATION]];
+}
+
++ (int)getCollectNumber{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_COLLECTNUMBER]] intValue];
+}
+
++ (int)getEnrollNumber{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_ENROLLNUMBER]] intValue];
+}
+
++ (int)getFriendNumber{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_COLLECTNUMBER]] intValue];
+}
+
++ (void)logOut{
+    [[self class] setUserID:0l];
 }
 
 @end

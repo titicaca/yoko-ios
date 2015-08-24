@@ -47,6 +47,9 @@
 		7874BD9F1B86F38400DE373A /* UserServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BD9E1B86F38400DE373A /* UserServer.m */; };
 		7874BDA41B89A5EB00DE373A /* EnterPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDA11B89A5EB00DE373A /* EnterPasswordViewController.m */; };
 		7874BDA51B89A5EB00DE373A /* LoginInNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDA31B89A5EB00DE373A /* LoginInNavigationViewController.m */; };
+		7874BDA81B89A6F200DE373A /* TableFriendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDA71B89A6F200DE373A /* TableFriendTag.m */; };
+		7874BDAC1B8AB5D500DE373A /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDAB1B8AB5D500DE373A /* UserInfoViewController.m */; };
+		7874BDAF1B8AC28800DE373A /* UserSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDAE1B8AC28800DE373A /* UserSettingViewController.m */; };
 		78BC77731B69F16900CBBE3A /* FriendDetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77721B69F16900CBBE3A /* FriendDetailPageViewController.m */; };
 		78BC77761B69F19C00CBBE3A /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77751B69F19C00CBBE3A /* FriendDetailViewController.m */; };
 		78BC77791B69FF2100CBBE3A /* RootFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77781B69FF2100CBBE3A /* RootFriendDetailViewController.m */; };
@@ -147,6 +150,12 @@
 		7874BDA11B89A5EB00DE373A /* EnterPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterPasswordViewController.m; sourceTree = "<group>"; };
 		7874BDA21B89A5EB00DE373A /* LoginInNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInNavigationViewController.h; sourceTree = "<group>"; };
 		7874BDA31B89A5EB00DE373A /* LoginInNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInNavigationViewController.m; sourceTree = "<group>"; };
+		7874BDA61B89A6F200DE373A /* TableFriendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableFriendTag.h; sourceTree = "<group>"; };
+		7874BDA71B89A6F200DE373A /* TableFriendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableFriendTag.m; sourceTree = "<group>"; };
+		7874BDAA1B8AB5D500DE373A /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		7874BDAB1B8AB5D500DE373A /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		7874BDAD1B8AC28800DE373A /* UserSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingViewController.h; sourceTree = "<group>"; };
+		7874BDAE1B8AC28800DE373A /* UserSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingViewController.m; sourceTree = "<group>"; };
 		78BC77711B69F16900CBBE3A /* FriendDetailPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailPageViewController.h; sourceTree = "<group>"; };
 		78BC77721B69F16900CBBE3A /* FriendDetailPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailPageViewController.m; sourceTree = "<group>"; };
 		78BC77741B69F19C00CBBE3A /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
@@ -197,6 +206,8 @@
 				78198CC51B830D690041BC9D /* TableFriendInfo.m */,
 				78198CC71B8320570041BC9D /* FriendTagRecord.h */,
 				78198CC81B8320570041BC9D /* FriendTagRecord.m */,
+				7874BDA61B89A6F200DE373A /* TableFriendTag.h */,
+				7874BDA71B89A6F200DE373A /* TableFriendTag.m */,
 				78198CE61B85C65B0041BC9D /* DataConnection.h */,
 				78198CE71B85C65B0041BC9D /* DataConnection.m */,
 				78198CEC1B85C8F70041BC9D /* DataStatement.h */,
@@ -266,6 +277,10 @@
 				784D9E9C1B70863800AD3F4F /* LoginInViewController.m */,
 				78BC777A1B6A2FC300CBBE3A /* SignUpViewController.h */,
 				78BC777B1B6A2FC300CBBE3A /* SignUpViewController.m */,
+				7874BDAA1B8AB5D500DE373A /* UserInfoViewController.h */,
+				7874BDAB1B8AB5D500DE373A /* UserInfoViewController.m */,
+				7874BDAD1B8AC28800DE373A /* UserSettingViewController.h */,
+				7874BDAE1B8AC28800DE373A /* UserSettingViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -508,8 +523,10 @@
 				784D9F021B778F2800AD3F4F /* WeekScheduleView.m in Sources */,
 				7874BDA51B89A5EB00DE373A /* LoginInNavigationViewController.m in Sources */,
 				78198CE81B85C65B0041BC9D /* DataConnection.m in Sources */,
+				7874BDAF1B8AC28800DE373A /* UserSettingViewController.m in Sources */,
 				784D9E9D1B70863800AD3F4F /* LoginInViewController.m in Sources */,
 				78198CF51B85DAC20041BC9D /* UserDefaultConstants.c in Sources */,
+				7874BDAC1B8AB5D500DE373A /* UserInfoViewController.m in Sources */,
 				78BC77761B69F19C00CBBE3A /* FriendDetailViewController.m in Sources */,
 				784D9EB21B7256C300AD3F4F /* RestAPIReconnection.m in Sources */,
 				784D9E991B6F5F4E00AD3F4F /* RestAPI.m in Sources */,
@@ -537,6 +554,7 @@
 				784D9EFC1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.m in Sources */,
 				78198CC91B8320570041BC9D /* FriendTagRecord.m in Sources */,
 				7874BD9B1B86E99A00DE373A /* NSNull+InternalNullExtention.m in Sources */,
+				7874BDA81B89A6F200DE373A /* TableFriendTag.m in Sources */,
 				787111C91B67694F006B245B /* ViewController.m in Sources */,
 				784D9EEF1B7453B700AD3F4F /* CalendarDayModel.m in Sources */,
 				787111E81B677079006B245B /* FriendView.m in Sources */,

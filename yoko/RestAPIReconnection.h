@@ -23,7 +23,7 @@
 @property(retain, nonatomic) UIApplication* app;
 
 @property(assign, nonatomic) NSInteger statusCode;
-@property(assign, nonatomic) NSData *rcvData;
+@property(retain, nonatomic) NSData *rcvData;
 @property(assign, nonatomic) NSError *rcvError;
 @property(assign, nonatomic) NSInteger tokenType;
 

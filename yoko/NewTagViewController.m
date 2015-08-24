@@ -8,6 +8,7 @@
 
 #import "NewTagViewController.h"
 #import "NewTagCollectionViewCell.h"
+#import "TableFriendTag.h"
 
 @interface NewTagViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *CollectionViewOfTag;
@@ -19,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.friendList = [TableFriendTag getFriendArrayByTagId:self.selectedTagId];
     [self.CollectionViewOfTag registerClass:[NewTagCollectionViewCell class] forCellWithReuseIdentifier:@"NewTagCollectionViewCell"];
     self.deleteFlag = 0;
     [self.CollectionViewOfTag setPagingEnabled:NO];
@@ -62,9 +64,8 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    static int t = 6000000;
-  //  t--;
-    return t;
+    
+    return [self.friendList count];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
