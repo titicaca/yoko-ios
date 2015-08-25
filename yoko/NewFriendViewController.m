@@ -9,7 +9,7 @@
 #import "NewFriendViewController.h"
 
 @interface NewFriendViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *TableOfNewFriend;
+@property (weak, nonatomic) IBOutlet UITableView *tableOfNewFriend;
 
 @end
 
@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"新朋友";
     self.friendList=@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"];
     // Do any additional setup after loading the view.
 }

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestAPI.h"
 
-@interface SetTagViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface SetTagViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,RestAPIDelegate>
 
-@property (retain, nonatomic)NSArray *tagList;
+@property (retain, nonatomic)NSMutableArray *tagList;
+
 
 @end

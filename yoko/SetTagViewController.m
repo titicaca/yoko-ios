@@ -11,7 +11,11 @@
 #import "TableFriendTag.h"
 
 @interface SetTagViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *TableViewOfTag;
+{
+    NSIndexPath *currentIndexPath;
+    NSInteger currentTagId;
+}
+@property (weak, nonatomic) IBOutlet UITableView *tableViewOfTag;
 
 @end
 
@@ -20,7 +24,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"标签";
+}
+
+-(void)viewWillAppear:(BOOL)animated{
     self.tagList = [TableFriendTag getTagArray];
+    [self.tableViewOfTag reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,13 +40,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Tag"];
+    FriendTagRecord *friendTagRecord = [self.tagList objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:@"Tag"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text=[self.tagList objectAtIndex:indexPath.row];
+    cell.textLabel.text=friendTagRecord.tagName;
+    cell.tag=friendTagRecord.tagId;
     cell.accessoryType=UITableViewCellAccessoryNone;
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
@@ -49,17 +60,63 @@
     
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.tagList count];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FriendTagRecord *friendTagRecord = [self.tagList objectAtIndex:indexPath.row];
     NewTagViewController *newTagViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NewTagView"];
-    newTagViewController.selectedTagId = (indexPath.row+1);
+    newTagViewController.selectedTagId = friendTagRecord.tagId;
+    newTagViewController.selectedTagname = friendTagRecord.tagName;
+    newTagViewController.title = @"修改标签";
     [self.navigationController pushViewController:newTagViewController animated:YES];
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (editingStyle ==UITableViewCellEditingStyleDelete) {//如果编辑样式为删除样式
+        if (indexPath.row<[self.tagList count]) {
+            currentIndexPath = indexPath;
+            currentTagId = cell.tag;
+            RestAPI *r =[[RestAPI alloc] initNormalRequestWithURI:[NSString stringWithFormat:@"/user/mytag/%ld",cell.tag] andHTTPMethod:@"DELETE" andHTTPValues:nil andDelegate:self andIdentifier:@"deleteTag"];
+            [r startConnection];
+        }
+    }
+}
+
+- (void)RestAPIResultWithConnection:(NSURLConnection *)connection andStatusCode:(NSInteger)statusCode andReceiveData:(NSData *)data andError:(NSError *)error andIdentifier:(NSString *)identifier{
+    NSString *str=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",connection.currentRequest);
+    NSLog(@"%ld",statusCode);
+    NSLog(@"%@",str);
+    NSLog(@"%@",[error description]);
+    
+    if(statusCode / 100 !=2){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"删除失败" message:@"删除失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
+    if([identifier isEqualToString:@"deleteTag"]){
+        NSDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        
+        if([[rcvDictionary objectForKey:@"result"] boolValue] == true){
+            [TableFriendTag deleteFriendTagRecordsByTagId:currentTagId];
+            if (currentIndexPath.row<[self.tagList count]) {
+                [self.tagList removeObjectAtIndex:currentIndexPath.row];//移除数据源的数据
+                [self.tableViewOfTag deleteRowsAtIndexPaths:[NSArray arrayWithObject:currentIndexPath] withRowAnimation:UITableViewRowAnimationLeft];//移除tableView中的数据
+            }
+
+            
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"删除失败" message:@"删除失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+        }
+    }
     
 }
 

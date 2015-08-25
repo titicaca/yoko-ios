@@ -16,4 +16,7 @@
 @property(nonatomic, assign) long tagId;
 @property(nonatomic, retain) NSString *tagName;
 
+- (id)initWithFriendTagRecord:(FriendTagRecord *)friendTagRecord;
+- (id)initWithUid:(long)uid andFuid:(long)fuid andTagId:(long)tagId andTagName:(NSString *)tagName;
+
 @end

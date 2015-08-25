@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestAPI.h"
 
-@interface MainTabViewController : UITabBarController
+@interface MainTabViewController : UITabBarController<RestAPIDelegate>
 
 @end

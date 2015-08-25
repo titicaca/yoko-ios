@@ -11,13 +11,13 @@
 #import "EnterPasswordViewController.h"
 
 @interface SignUpViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *TextFieldOfPhone;
-@property (weak, nonatomic) IBOutlet UITextField *TextFieldOfCode;
-@property (weak, nonatomic) IBOutlet UIButton *ButtonOfGetCode;
-@property (weak, nonatomic) IBOutlet UILabel *LabelOfCounter;
-- (IBAction)ButtonActionOfGetCode:(id)sender;
-- (IBAction)ButtonActionOfSignUp:(id)sender;
-- (IBAction)ButtonActionOfLogIn:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldOfPhone;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldOfCode;
+@property (weak, nonatomic) IBOutlet UIButton *buttonOfGetCode;
+@property (weak, nonatomic) IBOutlet UILabel *labelOfCounter;
+- (IBAction)actionOfGetCode:(id)sender;
+- (IBAction)actionOfSignUp:(id)sender;
+- (IBAction)actionOfLogIn:(id)sender;
 
 @end
 
@@ -46,23 +46,23 @@
 - (void)TimerCount{
     static int secondCount=30;
     secondCount--;
-    self.LabelOfCounter.hidden = false;
-    self.ButtonOfGetCode.hidden = true;
-    self.LabelOfCounter.text = [NSString stringWithFormat: @"再次获取%d秒",secondCount];
+    self.labelOfCounter.hidden = false;
+    self.buttonOfGetCode.hidden = true;
+    self.labelOfCounter.text = [NSString stringWithFormat: @"再次获取%d秒",secondCount];
     if(secondCount == 0){
         [self.timer invalidate];
         self.timer = nil;
         secondCount = 30;
-            self.LabelOfCounter.hidden = true;
-        self.ButtonOfGetCode.hidden = false;
+            self.labelOfCounter.hidden = true;
+        self.buttonOfGetCode.hidden = false;
 
     }
 }
 
-- (IBAction)ButtonActionOfGetCode:(id)sender {
+- (IBAction)actionOfGetCode:(id)sender {
     
     if([self VerifyPhone] == true){
-        [SMS_SDK getVerificationCodeBySMSWithPhone:self.TextFieldOfPhone.text zone:@"86" result:nil];
+        [SMS_SDK getVerificationCodeBySMSWithPhone:self.textFieldOfPhone.text zone:@"86" result:nil];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(TimerCount) userInfo:nil repeats:YES];
     }
     else{
@@ -73,12 +73,12 @@
     
 }
 
-- (IBAction)ButtonActionOfSignUp:(id)sender {
+- (IBAction)actionOfSignUp:(id)sender {
     if([self VerifyCode]){
-        [SMS_SDK commitVerifyCode:self.TextFieldOfCode.text result:^(enum SMS_ResponseState state) {
+        [SMS_SDK commitVerifyCode:self.textFieldOfCode.text result:^(enum SMS_ResponseState state) {
             if(state == 1){
                 EnterPasswordViewController *enterPasswordViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EnterPasswordView"];
-                enterPasswordViewController.mobile = self.TextFieldOfPhone.text;
+                enterPasswordViewController.mobile = self.textFieldOfPhone.text;
                 [self.navigationController pushViewController:enterPasswordViewController animated:YES];
                 
             }
@@ -95,18 +95,18 @@
     }
 }
 
-- (IBAction)ButtonActionOfLogIn:(id)sender {
+- (IBAction)actionOfLogIn:(id)sender {
 }
 
 - (BOOL)VerifyPhone {
-    if(self.TextFieldOfPhone.text.length != 11){
+    if(self.textFieldOfPhone.text.length != 11){
         return false;
     }
     return true;
 }
 
 - (BOOL)VerifyCode {
-    if(self.TextFieldOfCode.text.length != 4){
+    if(self.textFieldOfCode.text.length != 4){
         return false;
     }
     return true;

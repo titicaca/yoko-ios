@@ -12,9 +12,9 @@
 @interface EnterPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *ButtonOfFinish;
 - (IBAction)ActionOfFinish:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextField *TextFieldOfName;
-@property (weak, nonatomic) IBOutlet UITextField *TextFieldOfPassword;
-@property (weak, nonatomic) IBOutlet UITextField *TextFieldOfRepass;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldOfName;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldOfPassword;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldOfRepass;
 
 @end
 
@@ -44,22 +44,22 @@
 - (IBAction)ActionOfFinish:(id)sender {
     
     
-    if(![self.TextFieldOfPassword.text isEqualToString:self.TextFieldOfRepass.text]){
+    if(![self.textFieldOfPassword.text isEqualToString:self.textFieldOfRepass.text]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密码错误" message:@"两次输入的密码不一致" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
     
-    if(self.TextFieldOfPassword.text.length<6){
+    if(self.textFieldOfPassword.text.length<6){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密码过短" message:@"请输入6位以上密码" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
     
     NSMutableDictionary *HTTPValues= [[NSMutableDictionary alloc] init];
-    [HTTPValues setObject:self.TextFieldOfName.text forKey:@"name"];
+    [HTTPValues setObject:self.textFieldOfName.text forKey:@"name"];
     [HTTPValues setObject:[NSString stringWithFormat:@"0_%@",self.mobile] forKey:@"role_mobile"];
-    [HTTPValues setObject:self.TextFieldOfPassword.text forKey:@"password"];
+    [HTTPValues setObject:self.textFieldOfPassword.text forKey:@"password"];
     
     RestAPI *r =[[RestAPI alloc] initSignUpRequestWithURI:@"/signup/user" andHTTPMethod:@"POST" andHTTPValues:HTTPValues andDelegate:self andIdentifier:nil];
     
@@ -80,7 +80,7 @@
         return;
     }
     
-    NSMutableDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     BOOL result = [rcvDictionary objectForKey:@"result"];
     
     if(result == true){

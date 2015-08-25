@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface NewTagViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+#import "SelectFriendViewController.h"
+#import "RestAPI.h"
+@interface NewTagViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,SelectFriend,UITextFieldDelegate,RestAPIDelegate>
 
 @property(assign, nonatomic)int deleteFlag;
 
-@property(nonatomic, retain) NSArray *friendList;
-@property(nonatomic, assign) long selectedTagId;
-
+@property(nonatomic, retain) NSMutableArray *friendList;
+@property(nonatomic, assign) NSInteger selectedTagId;
+@property(nonatomic, retain) NSString *selectedTagname;
 @end

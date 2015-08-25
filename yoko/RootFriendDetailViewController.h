@@ -14,5 +14,6 @@
 @property (strong, nonatomic)UIPageViewController *pageViewController;
 @property (assign, nonatomic) NSUInteger allPageIndex;
 @property (assign, nonatomic) NSUInteger friendId;
+@property (assign, nonatomic) NSUInteger currentPageIndex;
 
 @end

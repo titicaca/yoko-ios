@@ -10,7 +10,6 @@
 #import "FriendInfoRecord.h"
 #import "DataConnection.h"
 #import "DBConstants.h"
-#import "UserServer.h"
 
 
 @implementation TableFriendInfo
@@ -57,17 +56,22 @@
     }
 }
 
-+ (void)insertFriendInfoRecords:(NSArray *)friendAndTagArray{
++ (void)synFriendInfoRecords:(NSArray *)friendAndTagArray{
+    long uid = [UserServer getUserID];
+    
     [DataConnection beginTransaction];
     
     DataStatement *stmt = nil;
-    NSString *sqlString = [NSString stringWithFormat:@"INSERT OR IGNORE INTO %s VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",TABLE_FRIEND_INFO];
-    const char *cString    = [sqlString cStringUsingEncoding:NSUTF8StringEncoding];
-    
+    NSString *deleteString = [NSString stringWithFormat:@"DELETE FROM %s WHERE uid = %ld",TABLE_FRIEND_INFO, uid];
+    const char *cString  = [deleteString cStringUsingEncoding:NSUTF8StringEncoding];
     stmt = [DataConnection statementWithQuery:cString];
-    NSLog(@"%@",stmt);
-
-    long uid = [UserServer getUserID];
+    [stmt step];
+    [stmt reset];
+    [stmt finaliz];
+    
+    NSString *insertString = [NSString stringWithFormat:@"INSERT OR IGNORE INTO %s VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",TABLE_FRIEND_INFO];
+    cString    = [insertString cStringUsingEncoding:NSUTF8StringEncoding];
+    stmt = [DataConnection statementWithQuery:cString];
     
     for(NSDictionary *friendAndTag in friendAndTagArray){
         NSDictionary *friendInfo = [friendAndTag objectForKey:@"friend"];
@@ -88,8 +92,7 @@
         [stmt bindInt32:[[friendInfo objectForKey:@"friendnumber"] intValue] forIndex:14];
         [stmt bindInt64:[[friendInfo objectForKey:@"logintime"] longValue] forIndex:15];
         
-        if (SQLITE_DONE != [stmt step]) {
-        }
+        [stmt step];
         [stmt reset];
     }
     [stmt finaliz];
@@ -106,16 +109,45 @@
     
     
     while([stmt step] == SQLITE_ROW){
-        NSLog(@"1%ld,    2%@    3%@    4%ld",[stmt getInt64:2],[stmt getString:6],[stmt getString:7],[stmt getInt64:15]);
         FriendInfoRecord *friendInfoRecord = [[FriendInfoRecord alloc] initWithFuid:[stmt getInt64:2] andNickname:[stmt getString:6] andPicturelink:[stmt getString:7] andLogintime:[stmt getInt64:15]];
         [friendInfoRecords addObject:friendInfoRecord];
     }
     [stmt reset];
     [stmt finaliz];
     
-    NSLog(@"%@",friendInfoRecords);
     
     return friendInfoRecords;
+}
+
++ (FriendInfoRecord *)getFriendInfoByFriendId:(long)friendId{
+    DataStatement *stmt = nil;
+    NSString *selectString = [NSString stringWithFormat:@"SELECT * FROM %s WHERE uid = %ld AND fuid = %ld",TABLE_FRIEND_INFO, [UserServer getUserID], friendId];
+    const char *cString    = [selectString cStringUsingEncoding:NSUTF8StringEncoding];
+    stmt = [DataConnection statementWithQuery:cString];
+    
+    if([stmt step] == SQLITE_ROW){
+        FriendInfoRecord *friendInfoRecord = [[FriendInfoRecord alloc] initWithFuid:[stmt getInt64:2] andNickname:[stmt getString:6] andPicturelink:[stmt getString:7] andLogintime:[stmt getInt64:15]];
+        [stmt reset];
+        [stmt finaliz];
+        
+        return friendInfoRecord;
+    }
+    else{
+        return NULL;
+    }
+    
+
+}
+
++ (void)deleteFriendInfoRecordsByFriendId:(long)friendId{
+    
+    DataStatement *stmt = nil;
+    NSString *deleteString = [NSString stringWithFormat:@"DELETE FROM %s WHERE uid = %ld AND fuid = %ld",TABLE_FRIEND_INFO, [UserServer getUserID],friendId];
+    const char *cString  = [deleteString cStringUsingEncoding:NSUTF8StringEncoding];
+    stmt = [DataConnection statementWithQuery:cString];
+    [stmt step];
+    
+    [TableFriendTag deleteFriendTagRecordsByFriendId:friendId];
 }
 
 @end

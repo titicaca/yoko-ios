@@ -14,8 +14,8 @@
 
 @interface LoginInViewController ()
 - (IBAction)ActionOfLoginIn:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextField *TextFieldOfMobile;
-@property (weak, nonatomic) IBOutlet UITextField *TextFieldOfPassword;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldOfMobile;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldOfPassword;
 
 
 @end
@@ -40,7 +40,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     NSLog(@"%@",[UserServer getMobileRole]);
     if([[[UserServer getMobileRole] substringToIndex:1] isEqualToString:@"0"]){
-        self.TextFieldOfMobile.text = [[UserServer getMobileRole] substringFromIndex:2];
+        self.textFieldOfMobile.text = [[UserServer getMobileRole] substringFromIndex:2];
     }
 
 }
@@ -57,8 +57,8 @@
 
 - (IBAction)ActionOfLoginIn:(id)sender {
     NSMutableDictionary *HTTPValues= [[NSMutableDictionary alloc] init];
-    [HTTPValues setObject:[NSString stringWithFormat:@"0_%@",self.TextFieldOfMobile.text] forKey:@"username"];
-    [HTTPValues setObject:self.TextFieldOfPassword.text forKey:@"password"];
+    [HTTPValues setObject:[NSString stringWithFormat:@"0_%@",self.textFieldOfMobile.text] forKey:@"username"];
+    [HTTPValues setObject:self.textFieldOfPassword.text forKey:@"password"];
     [HTTPValues setObject:@"password" forKey:@"grant_type"];
     
     RestAPI *r = [[RestAPI alloc] initTokenRequestWithURI:@"/oauth/token" andHTTPMethod:@"POST" andHTTPValues:HTTPValues andDelegate:self andIdentifier:@"login"];
@@ -89,7 +89,7 @@
 
         }
         
-        NSMutableDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         
         NSString *accessToken = [rcvDictionary objectForKey:@"access_token"];
         if(accessToken == nil){
@@ -99,78 +99,15 @@
         }
         NSString *refreshToken = [rcvDictionary objectForKey:@"refresh_token"];
         
-        [UserServer saveLogInInfoWithAccessToken:accessToken andRefreshToken:refreshToken andUserMobile:self.TextFieldOfMobile.text andPassword:self.TextFieldOfPassword.text];
-        
-        RestAPI *r = [[RestAPI alloc] initNormalRequestWithURI:@"/user/userinfo" andHTTPMethod:@"GET" andHTTPValues:nil andDelegate:self andIdentifier:@"userinfo"];
-        [r startConnection];
-        
-    }
-    
-    else if([identifier isEqualToString:@"userinfo"]){
-        if(statusCode / 100 !=2){
-            NSLog(@"%ld",statusCode);
-            UIAlertView *alert;
-            if(statusCode == 400){
-                alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"用户名或密码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            }
-            else{
-                alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"登陆失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            }
-            [alert show];
-            return;
-            
-        }
-        
-        NSMutableDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        if(rcvDictionary == nil){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"登陆失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
-            return;
-        }
-        
-        [UserServer saveUserInfo:rcvDictionary];
-        
-        RestAPI *r = [[RestAPI alloc] initNormalRequestWithURI:@"/user/myfriend/allinfo" andHTTPMethod:@"GET" andHTTPValues:nil andDelegate:self andIdentifier:@"myfriendallinfo"];
-        [r startConnection];
-        
-        
-    }
-    else if ([identifier isEqualToString:@"myfriendallinfo"]){
-        
-        if(statusCode / 100 !=2){
-            NSLog(@"%ld",statusCode);
-            UIAlertView *alert;
-            if(statusCode == 400){
-                alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"用户名或密码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            }
-            else{
-                alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"登陆失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            }
-            [alert show];
-            return;
-            
-        }
-        
-        NSMutableDictionary *tableDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-      //  NSLog(@"%@",[tableDictionary objectForKey:@"list"]);
-        
-        
-        if(tableDictionary == nil){
-            RestAPI *r = [[RestAPI alloc] initNormalRequestWithURI:@"/user/myfriend/allinfo" andHTTPMethod:@"GET" andHTTPValues:nil andDelegate:self andIdentifier:@"myfriendallinfo"];
-            [r startConnection];
-            return;
-        }
-        
-        NSMutableArray *rcvArray = [tableDictionary objectForKey:@"list"];
-        NSLog(@"%@",rcvArray);
+        [UserServer saveLogInInfoWithAccessToken:accessToken andRefreshToken:refreshToken andUserMobile:self.textFieldOfMobile.text andPassword:self.textFieldOfPassword.text];
         
         [TableFriendInfo createTable];
-        [TableFriendInfo insertFriendInfoRecords:rcvArray];
         [TableFriendTag createTable];
-        [TableFriendTag insertFriendTagRecords:rcvArray];
+
         
         MainTabViewController *mainTabViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabView"];
         [self presentViewController:mainTabViewController animated:YES completion:nil];
+        
     }
     
     

@@ -39,7 +39,8 @@
     
     
     FriendDetailViewController *friendDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendDetailView"];
-    friendDetailViewController.pageIndex = index;
+    friendDetailViewController.friendId = index;
+    friendDetailViewController.pageIndex = self.currentPageIndex;
     
     return friendDetailViewController;
 }

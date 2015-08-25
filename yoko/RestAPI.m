@@ -89,7 +89,7 @@
         [restAPIReconnection startConnection];
         return;
     }
-    NSMutableDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     NSString *accessToken = [rcvDictionary objectForKey:@"access_token"];
     if(accessToken != nil){
         [UserServer saveAccessToken:accessToken];
@@ -110,7 +110,7 @@
 
         return;
     }
-    NSMutableDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSDictionary *rcvDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     NSString *accessToken = [rcvDictionary objectForKey:@"access_token"];
     if(accessToken != nil){
         [UserServer saveAccessToken:accessToken];

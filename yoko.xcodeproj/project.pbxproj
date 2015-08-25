@@ -42,7 +42,7 @@
 		787111CE1B67694F006B245B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 787111CD1B67694F006B245B /* Images.xcassets */; };
 		787111D11B67694F006B245B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 787111CF1B67694F006B245B /* LaunchScreen.xib */; };
 		787111DD1B67694F006B245B /* yokoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 787111DC1B67694F006B245B /* yokoTests.m */; };
-		787111E81B677079006B245B /* FriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 787111E71B677079006B245B /* FriendView.m */; };
+		787111E81B677079006B245B /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 787111E71B677079006B245B /* FriendViewController.m */; };
 		7874BD9B1B86E99A00DE373A /* NSNull+InternalNullExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BD9A1B86E99A00DE373A /* NSNull+InternalNullExtention.m */; };
 		7874BD9F1B86F38400DE373A /* UserServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BD9E1B86F38400DE373A /* UserServer.m */; };
 		7874BDA41B89A5EB00DE373A /* EnterPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDA11B89A5EB00DE373A /* EnterPasswordViewController.m */; };
@@ -50,6 +50,9 @@
 		7874BDA81B89A6F200DE373A /* TableFriendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDA71B89A6F200DE373A /* TableFriendTag.m */; };
 		7874BDAC1B8AB5D500DE373A /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDAB1B8AB5D500DE373A /* UserInfoViewController.m */; };
 		7874BDAF1B8AC28800DE373A /* UserSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDAE1B8AC28800DE373A /* UserSettingViewController.m */; };
+		7874BDB21B8B216300DE373A /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDB11B8B216300DE373A /* AddFriendViewController.m */; };
+		7874BDB51B8C44E800DE373A /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDB41B8C44E800DE373A /* FriendTableViewCell.m */; };
+		7874BDB81B8C5D3A00DE373A /* SelectFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDB71B8C5D3A00DE373A /* SelectFriendViewController.m */; };
 		78BC77731B69F16900CBBE3A /* FriendDetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77721B69F16900CBBE3A /* FriendDetailPageViewController.m */; };
 		78BC77761B69F19C00CBBE3A /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77751B69F19C00CBBE3A /* FriendDetailViewController.m */; };
 		78BC77791B69FF2100CBBE3A /* RootFriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC77781B69FF2100CBBE3A /* RootFriendDetailViewController.m */; };
@@ -140,8 +143,8 @@
 		787111D61B67694F006B245B /* yokoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = yokoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		787111DB1B67694F006B245B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		787111DC1B67694F006B245B /* yokoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yokoTests.m; sourceTree = "<group>"; };
-		787111E61B677079006B245B /* FriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendView.h; sourceTree = "<group>"; };
-		787111E71B677079006B245B /* FriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendView.m; sourceTree = "<group>"; };
+		787111E61B677079006B245B /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
+		787111E71B677079006B245B /* FriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
 		7874BD991B86E99A00DE373A /* NSNull+InternalNullExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+InternalNullExtention.h"; sourceTree = "<group>"; };
 		7874BD9A1B86E99A00DE373A /* NSNull+InternalNullExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+InternalNullExtention.m"; sourceTree = "<group>"; };
 		7874BD9D1B86F38400DE373A /* UserServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserServer.h; sourceTree = "<group>"; };
@@ -156,6 +159,12 @@
 		7874BDAB1B8AB5D500DE373A /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		7874BDAD1B8AC28800DE373A /* UserSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingViewController.h; sourceTree = "<group>"; };
 		7874BDAE1B8AC28800DE373A /* UserSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingViewController.m; sourceTree = "<group>"; };
+		7874BDB01B8B216300DE373A /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
+		7874BDB11B8B216300DE373A /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
+		7874BDB31B8C44E800DE373A /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		7874BDB41B8C44E800DE373A /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		7874BDB61B8C5D3900DE373A /* SelectFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFriendViewController.h; sourceTree = "<group>"; };
+		7874BDB71B8C5D3A00DE373A /* SelectFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFriendViewController.m; sourceTree = "<group>"; };
 		78BC77711B69F16900CBBE3A /* FriendDetailPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailPageViewController.h; sourceTree = "<group>"; };
 		78BC77721B69F16900CBBE3A /* FriendDetailPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailPageViewController.m; sourceTree = "<group>"; };
 		78BC77741B69F19C00CBBE3A /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
@@ -246,8 +255,8 @@
 		784D9EBE1B7382E300AD3F4F /* Friend */ = {
 			isa = PBXGroup;
 			children = (
-				787111E61B677079006B245B /* FriendView.h */,
-				787111E71B677079006B245B /* FriendView.m */,
+				787111E61B677079006B245B /* FriendViewController.h */,
+				787111E71B677079006B245B /* FriendViewController.m */,
 				78BC77711B69F16900CBBE3A /* FriendDetailPageViewController.h */,
 				78BC77721B69F16900CBBE3A /* FriendDetailPageViewController.m */,
 				78BC77741B69F19C00CBBE3A /* FriendDetailViewController.h */,
@@ -262,6 +271,12 @@
 				784D9E921B6E570100AD3F4F /* NewTagViewController.m */,
 				784D9E941B6E5A2800AD3F4F /* NewTagCollectionViewCell.h */,
 				784D9E951B6E5A2900AD3F4F /* NewTagCollectionViewCell.m */,
+				7874BDB01B8B216300DE373A /* AddFriendViewController.h */,
+				7874BDB11B8B216300DE373A /* AddFriendViewController.m */,
+				7874BDB31B8C44E800DE373A /* FriendTableViewCell.h */,
+				7874BDB41B8C44E800DE373A /* FriendTableViewCell.m */,
+				7874BDB61B8C5D3900DE373A /* SelectFriendViewController.h */,
+				7874BDB71B8C5D3A00DE373A /* SelectFriendViewController.m */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -536,6 +551,7 @@
 				78BC77731B69F16900CBBE3A /* FriendDetailPageViewController.m in Sources */,
 				784D9EEE1B7453B700AD3F4F /* CalendarLogic.m in Sources */,
 				784D9EEA1B7453B700AD3F4F /* CalendarViewController.m in Sources */,
+				7874BDB21B8B216300DE373A /* AddFriendViewController.m in Sources */,
 				78198D101B85E49A0041BC9D /* DBConstants.c in Sources */,
 				7874BD9F1B86F38400DE373A /* UserServer.m in Sources */,
 				78BC77791B69FF2100CBBE3A /* RootFriendDetailViewController.m in Sources */,
@@ -543,10 +559,12 @@
 				78198CF11B85D0420041BC9D /* DatabaseCenter.m in Sources */,
 				78198CC31B830BDF0041BC9D /* FriendInfoRecord.m in Sources */,
 				784D9EEB1B7453B700AD3F4F /* CalendarMonthCollectionViewLayout.m in Sources */,
+				7874BDB81B8C5D3A00DE373A /* SelectFriendViewController.m in Sources */,
 				787111C61B67694F006B245B /* yoko.xcdatamodeld in Sources */,
 				78198CC61B830D690041BC9D /* TableFriendInfo.m in Sources */,
 				7874BDA41B89A5EB00DE373A /* EnterPasswordViewController.m in Sources */,
 				784D9E931B6E570100AD3F4F /* NewTagViewController.m in Sources */,
+				7874BDB51B8C44E800DE373A /* FriendTableViewCell.m in Sources */,
 				784D9E901B6E46C500AD3F4F /* NewFriendViewController.m in Sources */,
 				78198CEE1B85C8F70041BC9D /* DataStatement.m in Sources */,
 				784D9EEC1B7453B700AD3F4F /* CalendarMonthHeaderView.m in Sources */,
@@ -557,7 +575,7 @@
 				7874BDA81B89A6F200DE373A /* TableFriendTag.m in Sources */,
 				787111C91B67694F006B245B /* ViewController.m in Sources */,
 				784D9EEF1B7453B700AD3F4F /* CalendarDayModel.m in Sources */,
-				787111E81B677079006B245B /* FriendView.m in Sources */,
+				787111E81B677079006B245B /* FriendViewController.m in Sources */,
 				784D9EED1B7453B700AD3F4F /* CalendarDayCell.m in Sources */,
 				787111C01B67694F006B245B /* main.m in Sources */,
 				784D9EF01B7453B700AD3F4F /* NSDate+WQCalendarLogic.m in Sources */,

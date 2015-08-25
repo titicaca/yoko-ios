@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestAPI.h"
 
-@interface FriendDetailViewController : UIViewController
+@interface FriendDetailViewController : UIViewController<RestAPIDelegate>
 
 @property (assign, nonatomic) NSUInteger pageIndex;
+@property (assign, nonatomic) NSUInteger friendId;
 
 
 
