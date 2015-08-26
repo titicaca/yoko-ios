@@ -7,6 +7,8 @@
 //
 
 #import "RootFriendDetailViewController.h"
+#import "FriendInfoRecord.h"
+#import "FriendDetailViewController.h"
 
 @interface RootFriendDetailViewController ()
 
@@ -23,7 +25,7 @@
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendDetailPageView"];
     self.pageViewController.dataSource = self;
     
-    FriendDetailViewController *startingViewController = [self viewControllerAtIndex:self.friendId];
+    FriendDetailViewController *startingViewController = [self viewControllerAtIndex:self.currentPageIndex];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
@@ -39,30 +41,27 @@
     
     
     FriendDetailViewController *friendDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendDetailView"];
-    friendDetailViewController.friendId = index;
-    friendDetailViewController.pageIndex = self.currentPageIndex;
+    friendDetailViewController.friendId = ((FriendInfoRecord *)[self.friendList objectAtIndex:index-1]).fuid;
+    friendDetailViewController.pageIndex = index;
     
     return friendDetailViewController;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
     NSUInteger index = ((FriendDetailViewController*) viewController).pageIndex;
-    
     if ((index == 1)||(index == NSNotFound)) {
         return nil;
     }
-    index--;
+    else index--;
     return [self viewControllerAtIndex:index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
     NSUInteger index = ((FriendDetailViewController*) viewController).pageIndex;
-    
     if (index==self.allPageIndex || index == NSNotFound) {
         return nil;
     }
-    index++;
-   
+    else index++;
     return [self viewControllerAtIndex:index];
 }
 

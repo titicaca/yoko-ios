@@ -82,11 +82,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    FriendTableViewCell *cell = (FriendTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     RootFriendDetailViewController *rootFriendDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RootFriendDetailView"];
     rootFriendDetailViewController.allPageIndex=[self.friendList count];
     rootFriendDetailViewController.currentPageIndex=([indexPath row]+1);
-    rootFriendDetailViewController.friendId = cell.friendInfoRecord.fuid;
+    rootFriendDetailViewController.friendList = self.friendList;
     [self.navigationController pushViewController:rootFriendDetailViewController animated:YES];
 
 }

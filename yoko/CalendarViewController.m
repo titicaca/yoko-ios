@@ -36,7 +36,7 @@ NSInteger secondsPerDay = 86400;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewOfMonth;
 @property (weak, nonatomic) IBOutlet UIButton *ButtonOfTest;
-- (IBAction)ActionOfTest:(id)sender;
+- (IBAction)ActionOfToday:(id)sender;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewOfWeek;
 - (IBAction)actionOfChangeType:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *labelOfWeek;
@@ -529,15 +529,21 @@ static NSString *DayCell = @"CalendarDayCell";
 
 - (void)selectDate:(NSDate *)date{
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:([date YMDComponents].year-self.currentInitYear)*12+[date YMDComponents].month-self.currentInitMonth];
-    NSMutableArray *month_Array = [self.calendarMonth objectAtIndex:indexPath.section];
-    int index = 0;
+    NSMutableArray *month_Array = [self.calendarMonth objectAtIndex:indexPath.section];\
+    int index = -1;
+    bool firstdayflag = false;
     for(CalendarDayModel *model in month_Array){
+        index++;
+        if(firstdayflag == false){
+            if(model.day!= 1) continue;
+            else firstdayflag = true;
+        }
         if(model.day == [date YMDComponents].day){
             indexPath = [NSIndexPath indexPathForRow:index inSection:([date YMDComponents].year-self.currentInitYear)*12+[date YMDComponents].month-self.currentInitMonth];
             [self collectionView:self.collectionViewOfMonth didSelectItemAtIndexPath:indexPath];
             break;
         }
-        index++;
+        
     }
     
   //  indexPath = [NSIndexPath indexPathForRow:[NSDate getDayNumbertoDay:[NSDate dateWithTimeIntervalSince1970: -4*secondsPerDay] beforDay:date] inSection:0];
@@ -582,7 +588,7 @@ static NSString *DayCell = @"CalendarDayCell";
 }
 
 
-- (IBAction)ActionOfTest:(id)sender {
+- (IBAction)ActionOfToday:(id)sender {
     static int i = 0;
     [self goToDate:[NSDate dateWithTimeIntervalSinceNow:secondsPerDay*i]];
     [self selectDate:[NSDate dateWithTimeIntervalSinceNow:secondsPerDay*i]];

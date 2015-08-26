@@ -31,14 +31,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    NSLog(@"%ld",self.friendId);
     FriendInfoRecord *friendInfoRecord = [TableFriendInfo getFriendInfoByFriendId:self.friendId];
     self.labelOfNickname.text = friendInfoRecord.nickname;
     
-    self.labelOfId.text = [NSString stringWithFormat:@"%lu",self.friendId];
+    self.labelOfId.text = [NSString stringWithFormat:@"%ld",self.friendId];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
     RestAPI *r =[[RestAPI alloc] initNormalRequestWithURI:[NSString stringWithFormat:@"/user/myfriend/%ld/info",self.friendId] andHTTPMethod:@"GET" andHTTPValues:nil andDelegate:self andIdentifier:nil];
     
     [r startConnection];
+
 }
 
 - (void)didReceiveMemoryWarning

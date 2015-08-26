@@ -107,7 +107,7 @@
 }
 
 + (int)getFriendNumber{
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_COLLECTNUMBER]] intValue];
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithUTF8String:USER_FRIENDNUMBER]] intValue];
 }
 
 + (void)logOut{

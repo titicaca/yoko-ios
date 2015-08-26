@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FriendDetailViewController.h"
+
 
 @interface RootFriendDetailViewController : UIViewController <UIPageViewControllerDataSource>
 
-@property (strong, nonatomic)UIPageViewController *pageViewController;
+@property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (assign, nonatomic) NSUInteger allPageIndex;
-@property (assign, nonatomic) NSUInteger friendId;
+@property (retain, nonatomic) NSArray *friendList;
 @property (assign, nonatomic) NSUInteger currentPageIndex;
 
 @end
