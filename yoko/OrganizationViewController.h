@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "RestAPI.h"
 
-@interface OrganizationViewController : UIViewController<RestAPIDelegate>
+@interface OrganizationViewController : UIViewController<RestAPIDelegate,UITableViewDataSource, UITableViewDelegate>
+
+@property(nonatomic, retain) NSArray *organizationList;
 
 @end

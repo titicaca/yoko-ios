@@ -84,7 +84,7 @@
     NSLog(@"%@",str);
     NSLog(@"%@",[error description]);
     
-    if(statusCode == 401){
+    if(statusCode != 200){
         RestAPIReconnection *restAPIReconnection = [[RestAPIReconnection alloc] initAutoLoginWithDelegate:self];
         [restAPIReconnection startConnection];
         return;
@@ -106,7 +106,7 @@
     NSLog(@"%ld",statusCode);
     NSLog(@"%@",str);
     NSLog(@"%@",[error description]);
-    if(statusCode == 401){
+    if(statusCode != 200){
 
         return;
     }
@@ -130,6 +130,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
     self.app.networkActivityIndicatorVisible = false;
   //  NSLog(@"connectionDidFinishLoading....");
+    if(self.statusCode == 401) return;
     [self.delegate RestAPIResultWithConnection:connection andStatusCode:self.statusCode andReceiveData:self.rcvData andError:self.rcvError andIdentifier:self.identifier];
     
     

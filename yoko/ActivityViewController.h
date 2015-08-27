@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "RestAPI.h"
 
-@interface ActivityViewController : UIViewController<RestAPIDelegate>
+@interface ActivityViewController : UIViewController<RestAPIDelegate,UITableViewDataSource,UITableViewDelegate>
+
+@property(nonatomic, retain) NSArray *activityList;
 
 @end

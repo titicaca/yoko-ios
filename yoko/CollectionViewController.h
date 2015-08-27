@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "RestAPI.h"
-@interface CollectionViewController : UIViewController<RestAPIDelegate>
+@interface CollectionViewController : UIViewController<RestAPIDelegate,UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic, retain) NSArray *collectionList;
 
 @end

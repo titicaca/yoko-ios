@@ -9,6 +9,7 @@
 #import "RootDiscoverViewController.h"
 
 
+
 @interface RootDiscoverViewController ()
 
 @end
@@ -18,19 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DiscoverPageView"];
-    self.pageViewController.dataSource = self;
-    
-    DiscoverViewController *startingViewController = [self viewControllerAtIndex:0];
-    NSArray *viewControllers = @[startingViewController];
-    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-    
-    //change the size of the page view controller
-    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-30);
-    [self addChildViewController:_pageViewController];
-    [self.view addSubview:_pageViewController.view];
-    [self.pageViewController didMoveToParentViewController:self];
+    UIViewController *organizationView = [self.storyboard instantiateViewControllerWithIdentifier:@"OrganizationView"];
+    organizationView.title = @"组织";
+    UIViewController *activityView = [self.storyboard instantiateViewControllerWithIdentifier:@"ActivityView"];
+    activityView.title = @"活动";
+    UIViewController *collectionView = [self.storyboard instantiateViewControllerWithIdentifier:@"CollectionView"];
+    collectionView.title = @"收藏";
+    UIViewController *messageView = [self.storyboard instantiateViewControllerWithIdentifier:@"MessageView"];
+    messageView.title = @"消息";
+    self.discoverTabViewController = [[DiscoverTabViewController alloc] initWithControllers:@[organizationView,activityView,collectionView,messageView]];
+    [self.view addSubview:self.discoverTabViewController.view];
+   // [self presentViewController:self.discoverTabViewController animated:NO completion:nil];
 
 }
 
@@ -38,39 +37,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (DiscoverViewController *)viewControllerAtIndex:(NSUInteger)index{
-    
-    
-    DiscoverViewController *organizationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DiscoverView"];
-    organizationViewController.pageIndex = index;
-    organizationViewController.delegate = self;
-    return organizationViewController;
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
-    NSUInteger index = ((DiscoverViewController*) viewController).pageIndex;
-    if ((index == 0)||(index == NSNotFound)) {
-          return nil;
-    }
-    else index--;
-    return [self viewControllerAtIndex:index];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
-    NSUInteger index = ((DiscoverViewController*) viewController).pageIndex;
-    if (index==3 || index == NSNotFound) {
-          return nil;
-    }
-    else index++;
-    return [self viewControllerAtIndex:index];
-}
-
-- (void)callbackPageIndex:(NSInteger)pageIndex{
-    UIViewController *startingViewController = [self viewControllerAtIndex:pageIndex];
-    [self.pageViewController setViewControllers:@[startingViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-}
-
 /*
 #pragma mark - Navigation
 

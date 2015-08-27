@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DiscoverViewController.h"
+#import "DiscoverTabViewController.h"
+@interface RootDiscoverViewController : UIViewController
 
-@interface RootDiscoverViewController : UIViewController<UIPageViewControllerDataSource,callbackPageIndex>
-
-@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (retain, nonatomic) DiscoverTabViewController *discoverTabViewController;
 
 @end

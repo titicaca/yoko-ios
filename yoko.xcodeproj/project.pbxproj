@@ -53,9 +53,21 @@
 		7874BDB21B8B216300DE373A /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDB11B8B216300DE373A /* AddFriendViewController.m */; };
 		7874BDB51B8C44E800DE373A /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDB41B8C44E800DE373A /* FriendTableViewCell.m */; };
 		7874BDB81B8C5D3A00DE373A /* SelectFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7874BDB71B8C5D3A00DE373A /* SelectFriendViewController.m */; };
-		78B97EE71B8D8C94001D482F /* DiscoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B97EE61B8D8C94001D482F /* DiscoverPageViewController.m */; };
+		789B08281B8EC57400A40A3E /* DiscoverTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B08271B8EC57400A40A3E /* DiscoverTabViewController.m */; };
+		789B083A1B8EDB4E00A40A3E /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 789B082A1B8EDB4E00A40A3E /* MJRefresh.bundle */; };
+		789B083B1B8EDB4E00A40A3E /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B082D1B8EDB4E00A40A3E /* MJRefreshBaseView.m */; };
+		789B083C1B8EDB4E00A40A3E /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B082F1B8EDB4E00A40A3E /* MJRefreshConst.m */; };
+		789B083D1B8EDB4E00A40A3E /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B08311B8EDB4E00A40A3E /* MJRefreshFooterView.m */; };
+		789B083E1B8EDB4E00A40A3E /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B08331B8EDB4E00A40A3E /* MJRefreshHeaderView.m */; };
+		789B083F1B8EDB4E00A40A3E /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B08351B8EDB4E00A40A3E /* UIScrollView+MJExtension.m */; };
+		789B08401B8EDB4E00A40A3E /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B08371B8EDB4E00A40A3E /* UIScrollView+MJRefresh.m */; };
+		789B08411B8EDB4E00A40A3E /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B08391B8EDB4E00A40A3E /* UIView+MJExtension.m */; };
+		789B08481B8EDEC500A40A3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789B08421B8EDD6900A40A3E /* UIKit.framework */; };
+		789B08491B8EDECC00A40A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789B08441B8EDD7000A40A3E /* Foundation.framework */; };
+		789B084A1B8EDED300A40A3E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789B08461B8EDD7E00A40A3E /* CoreGraphics.framework */; };
+		789B084E1B8F08E400A40A3E /* OrganizationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B084D1B8F08E400A40A3E /* OrganizationTableViewCell.m */; };
+		789B08541B8F0FD900A40A3E /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B08531B8F0FD900A40A3E /* ActivityTableViewCell.m */; };
 		78B97EEA1B8D8CE5001D482F /* RootDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B97EE91B8D8CE5001D482F /* RootDiscoverViewController.m */; };
-		78B97EED1B8D8E6A001D482F /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B97EEC1B8D8E6A001D482F /* DiscoverViewController.m */; };
 		78B97EF01B8DB663001D482F /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B97EEF1B8DB663001D482F /* MessageViewController.m */; };
 		78B97EF31B8DBA78001D482F /* OrganizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B97EF21B8DBA78001D482F /* OrganizationViewController.m */; };
 		78B97EF61B8DBE52001D482F /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B97EF51B8DBE52001D482F /* ActivityViewController.m */; };
@@ -172,12 +184,33 @@
 		7874BDB41B8C44E800DE373A /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		7874BDB61B8C5D3900DE373A /* SelectFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFriendViewController.h; sourceTree = "<group>"; };
 		7874BDB71B8C5D3A00DE373A /* SelectFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFriendViewController.m; sourceTree = "<group>"; };
-		78B97EE51B8D8C94001D482F /* DiscoverPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverPageViewController.h; sourceTree = "<group>"; };
-		78B97EE61B8D8C94001D482F /* DiscoverPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverPageViewController.m; sourceTree = "<group>"; };
+		789B08261B8EC57400A40A3E /* DiscoverTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTabViewController.h; sourceTree = "<group>"; };
+		789B08271B8EC57400A40A3E /* DiscoverTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTabViewController.m; sourceTree = "<group>"; };
+		789B082A1B8EDB4E00A40A3E /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		789B082B1B8EDB4E00A40A3E /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		789B082C1B8EDB4E00A40A3E /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		789B082D1B8EDB4E00A40A3E /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		789B082E1B8EDB4E00A40A3E /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		789B082F1B8EDB4E00A40A3E /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		789B08301B8EDB4E00A40A3E /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		789B08311B8EDB4E00A40A3E /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		789B08321B8EDB4E00A40A3E /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		789B08331B8EDB4E00A40A3E /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		789B08341B8EDB4E00A40A3E /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		789B08351B8EDB4E00A40A3E /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		789B08361B8EDB4E00A40A3E /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		789B08371B8EDB4E00A40A3E /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		789B08381B8EDB4E00A40A3E /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
+		789B08391B8EDB4E00A40A3E /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		789B08421B8EDD6900A40A3E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		789B08441B8EDD7000A40A3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		789B08461B8EDD7E00A40A3E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		789B084C1B8F08E400A40A3E /* OrganizationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationTableViewCell.h; sourceTree = "<group>"; };
+		789B084D1B8F08E400A40A3E /* OrganizationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationTableViewCell.m; sourceTree = "<group>"; };
+		789B08521B8F0FD900A40A3E /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
+		789B08531B8F0FD900A40A3E /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
 		78B97EE81B8D8CE5001D482F /* RootDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootDiscoverViewController.h; sourceTree = "<group>"; };
 		78B97EE91B8D8CE5001D482F /* RootDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootDiscoverViewController.m; sourceTree = "<group>"; };
-		78B97EEB1B8D8E6A001D482F /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
-		78B97EEC1B8D8E6A001D482F /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
 		78B97EEE1B8DB663001D482F /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		78B97EEF1B8DB663001D482F /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		78B97EF11B8DBA78001D482F /* OrganizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationViewController.h; sourceTree = "<group>"; };
@@ -207,6 +240,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789B084A1B8EDED300A40A3E /* CoreGraphics.framework in Frameworks */,
+				789B08491B8EDECC00A40A3E /* Foundation.framework in Frameworks */,
+				789B08481B8EDEC500A40A3E /* UIKit.framework in Frameworks */,
 				784D9EA61B71BF8C00AD3F4F /* libsqlite3.dylib in Frameworks */,
 				78BC778A1B6A38C700CBBE3A /* MessageUI.framework in Frameworks */,
 				78BC77881B6A38BE00CBBE3A /* libz.dylib in Frameworks */,
@@ -386,6 +422,7 @@
 		787111BC1B67694F006B245B /* yoko */ = {
 			isa = PBXGroup;
 			children = (
+				789B08291B8EDB4E00A40A3E /* MJRefresh */,
 				78B97EE41B8D8C17001D482F /* Discover */,
 				784D9EC01B73832D00AD3F4F /* Calendar */,
 				784D9EBF1B7382F900AD3F4F /* User */,
@@ -444,23 +481,80 @@
 			name = UserServer;
 			sourceTree = "<group>";
 		};
+		789B08291B8EDB4E00A40A3E /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				789B082A1B8EDB4E00A40A3E /* MJRefresh.bundle */,
+				789B082B1B8EDB4E00A40A3E /* MJRefresh.h */,
+				789B082C1B8EDB4E00A40A3E /* MJRefreshBaseView.h */,
+				789B082D1B8EDB4E00A40A3E /* MJRefreshBaseView.m */,
+				789B082E1B8EDB4E00A40A3E /* MJRefreshConst.h */,
+				789B082F1B8EDB4E00A40A3E /* MJRefreshConst.m */,
+				789B08301B8EDB4E00A40A3E /* MJRefreshFooterView.h */,
+				789B08311B8EDB4E00A40A3E /* MJRefreshFooterView.m */,
+				789B08321B8EDB4E00A40A3E /* MJRefreshHeaderView.h */,
+				789B08331B8EDB4E00A40A3E /* MJRefreshHeaderView.m */,
+				789B08341B8EDB4E00A40A3E /* UIScrollView+MJExtension.h */,
+				789B08351B8EDB4E00A40A3E /* UIScrollView+MJExtension.m */,
+				789B08361B8EDB4E00A40A3E /* UIScrollView+MJRefresh.h */,
+				789B08371B8EDB4E00A40A3E /* UIScrollView+MJRefresh.m */,
+				789B08381B8EDB4E00A40A3E /* UIView+MJExtension.h */,
+				789B08391B8EDB4E00A40A3E /* UIView+MJExtension.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		789B084B1B8F08C100A40A3E /* Organization */ = {
+			isa = PBXGroup;
+			children = (
+				78B97EF11B8DBA78001D482F /* OrganizationViewController.h */,
+				78B97EF21B8DBA78001D482F /* OrganizationViewController.m */,
+				789B084C1B8F08E400A40A3E /* OrganizationTableViewCell.h */,
+				789B084D1B8F08E400A40A3E /* OrganizationTableViewCell.m */,
+			);
+			name = Organization;
+			sourceTree = "<group>";
+		};
+		789B084F1B8F0F9800A40A3E /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				78B97EF41B8DBE52001D482F /* ActivityViewController.h */,
+				78B97EF51B8DBE52001D482F /* ActivityViewController.m */,
+				789B08521B8F0FD900A40A3E /* ActivityTableViewCell.h */,
+				789B08531B8F0FD900A40A3E /* ActivityTableViewCell.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
+		789B08501B8F0FA500A40A3E /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				78B97EF71B8DBE5E001D482F /* CollectionViewController.h */,
+				78B97EF81B8DBE5E001D482F /* CollectionViewController.m */,
+			);
+			name = Collection;
+			sourceTree = "<group>";
+		};
+		789B08511B8F0FB000A40A3E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				78B97EEE1B8DB663001D482F /* MessageViewController.h */,
+				78B97EEF1B8DB663001D482F /* MessageViewController.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		78B97EE41B8D8C17001D482F /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				78B97EE51B8D8C94001D482F /* DiscoverPageViewController.h */,
-				78B97EE61B8D8C94001D482F /* DiscoverPageViewController.m */,
+				789B08511B8F0FB000A40A3E /* Message */,
+				789B08501B8F0FA500A40A3E /* Collection */,
+				789B084F1B8F0F9800A40A3E /* Activity */,
+				789B084B1B8F08C100A40A3E /* Organization */,
 				78B97EE81B8D8CE5001D482F /* RootDiscoverViewController.h */,
 				78B97EE91B8D8CE5001D482F /* RootDiscoverViewController.m */,
-				78B97EEB1B8D8E6A001D482F /* DiscoverViewController.h */,
-				78B97EEC1B8D8E6A001D482F /* DiscoverViewController.m */,
-				78B97EEE1B8DB663001D482F /* MessageViewController.h */,
-				78B97EEF1B8DB663001D482F /* MessageViewController.m */,
-				78B97EF11B8DBA78001D482F /* OrganizationViewController.h */,
-				78B97EF21B8DBA78001D482F /* OrganizationViewController.m */,
-				78B97EF41B8DBE52001D482F /* ActivityViewController.h */,
-				78B97EF51B8DBE52001D482F /* ActivityViewController.m */,
-				78B97EF71B8DBE5E001D482F /* CollectionViewController.h */,
-				78B97EF81B8DBE5E001D482F /* CollectionViewController.m */,
+				789B08261B8EC57400A40A3E /* DiscoverTabViewController.h */,
+				789B08271B8EC57400A40A3E /* DiscoverTabViewController.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -468,6 +562,9 @@
 		78BC77841B6A388300CBBE3A /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				789B08461B8EDD7E00A40A3E /* CoreGraphics.framework */,
+				789B08441B8EDD7000A40A3E /* Foundation.framework */,
+				789B08421B8EDD6900A40A3E /* UIKit.framework */,
 				784D9EA51B71BF8C00AD3F4F /* libsqlite3.dylib */,
 				78BC77871B6A38BE00CBBE3A /* libz.dylib */,
 				78BC77851B6A38B400CBBE3A /* libicucore.dylib */,
@@ -560,6 +657,7 @@
 			files = (
 				787111CC1B67694F006B245B /* Main.storyboard in Resources */,
 				787111D11B67694F006B245B /* LaunchScreen.xib in Resources */,
+				789B083A1B8EDB4E00A40A3E /* MJRefresh.bundle in Resources */,
 				787111CE1B67694F006B245B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,11 +678,12 @@
 			files = (
 				784D9F021B778F2800AD3F4F /* WeekScheduleView.m in Sources */,
 				7874BDA51B89A5EB00DE373A /* LoginInNavigationViewController.m in Sources */,
+				789B083E1B8EDB4E00A40A3E /* MJRefreshHeaderView.m in Sources */,
 				78198CE81B85C65B0041BC9D /* DataConnection.m in Sources */,
-				78B97EE71B8D8C94001D482F /* DiscoverPageViewController.m in Sources */,
 				7874BDAF1B8AC28800DE373A /* UserSettingViewController.m in Sources */,
 				784D9E9D1B70863800AD3F4F /* LoginInViewController.m in Sources */,
 				78B97EF31B8DBA78001D482F /* OrganizationViewController.m in Sources */,
+				789B083B1B8EDB4E00A40A3E /* MJRefreshBaseView.m in Sources */,
 				78198CF51B85DAC20041BC9D /* UserDefaultConstants.c in Sources */,
 				7874BDAC1B8AB5D500DE373A /* UserInfoViewController.m in Sources */,
 				78BC77761B69F19C00CBBE3A /* FriendDetailViewController.m in Sources */,
@@ -594,15 +693,19 @@
 				784D9EAF1B7240B400AD3F4F /* MainTabViewController.m in Sources */,
 				784D9EA91B71C80A00AD3F4F /* SqliteManager.m in Sources */,
 				784D9E961B6E5A2900AD3F4F /* NewTagCollectionViewCell.m in Sources */,
+				789B08411B8EDB4E00A40A3E /* UIView+MJExtension.m in Sources */,
 				78BC77731B69F16900CBBE3A /* FriendDetailPageViewController.m in Sources */,
 				784D9EEE1B7453B700AD3F4F /* CalendarLogic.m in Sources */,
+				789B08541B8F0FD900A40A3E /* ActivityTableViewCell.m in Sources */,
 				78B97EF91B8DBE5E001D482F /* CollectionViewController.m in Sources */,
 				784D9EEA1B7453B700AD3F4F /* CalendarViewController.m in Sources */,
 				7874BDB21B8B216300DE373A /* AddFriendViewController.m in Sources */,
 				78198D101B85E49A0041BC9D /* DBConstants.c in Sources */,
+				789B083D1B8EDB4E00A40A3E /* MJRefreshFooterView.m in Sources */,
 				7874BD9F1B86F38400DE373A /* UserServer.m in Sources */,
 				78BC77791B69FF2100CBBE3A /* RootFriendDetailViewController.m in Sources */,
 				784D9EFF1B765EC900AD3F4F /* CalendarWeekHeaderView.m in Sources */,
+				789B083F1B8EDB4E00A40A3E /* UIScrollView+MJExtension.m in Sources */,
 				78198CF11B85D0420041BC9D /* DatabaseCenter.m in Sources */,
 				78198CC31B830BDF0041BC9D /* FriendInfoRecord.m in Sources */,
 				784D9EEB1B7453B700AD3F4F /* CalendarMonthCollectionViewLayout.m in Sources */,
@@ -610,20 +713,23 @@
 				787111C61B67694F006B245B /* yoko.xcdatamodeld in Sources */,
 				78198CC61B830D690041BC9D /* TableFriendInfo.m in Sources */,
 				7874BDA41B89A5EB00DE373A /* EnterPasswordViewController.m in Sources */,
+				789B083C1B8EDB4E00A40A3E /* MJRefreshConst.m in Sources */,
 				784D9E931B6E570100AD3F4F /* NewTagViewController.m in Sources */,
 				7874BDB51B8C44E800DE373A /* FriendTableViewCell.m in Sources */,
-				78B97EED1B8D8E6A001D482F /* DiscoverViewController.m in Sources */,
 				784D9E901B6E46C500AD3F4F /* NewFriendViewController.m in Sources */,
 				78B97EF61B8DBE52001D482F /* ActivityViewController.m in Sources */,
 				78198CEE1B85C8F70041BC9D /* DataStatement.m in Sources */,
+				789B084E1B8F08E400A40A3E /* OrganizationTableViewCell.m in Sources */,
 				784D9EEC1B7453B700AD3F4F /* CalendarMonthHeaderView.m in Sources */,
 				787111C31B67694F006B245B /* AppDelegate.m in Sources */,
 				784D9EFC1B76557800AD3F4F /* CalendarWeekCollectionViewLayout.m in Sources */,
 				78198CC91B8320570041BC9D /* FriendTagRecord.m in Sources */,
 				7874BD9B1B86E99A00DE373A /* NSNull+InternalNullExtention.m in Sources */,
+				789B08281B8EC57400A40A3E /* DiscoverTabViewController.m in Sources */,
 				7874BDA81B89A6F200DE373A /* TableFriendTag.m in Sources */,
 				787111C91B67694F006B245B /* ViewController.m in Sources */,
 				784D9EEF1B7453B700AD3F4F /* CalendarDayModel.m in Sources */,
+				789B08401B8EDB4E00A40A3E /* UIScrollView+MJRefresh.m in Sources */,
 				787111E81B677079006B245B /* FriendViewController.m in Sources */,
 				784D9EED1B7453B700AD3F4F /* CalendarDayCell.m in Sources */,
 				787111C01B67694F006B245B /* main.m in Sources */,
@@ -758,6 +864,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yoko",
@@ -775,6 +882,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yoko",

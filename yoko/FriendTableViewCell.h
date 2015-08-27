@@ -10,6 +10,7 @@
 #import "FriendInfoRecord.h"
 
 @interface FriendTableViewCell : UITableViewCell
+
 @property(nonatomic, retain)FriendInfoRecord *friendInfoRecord;
 
 @end
